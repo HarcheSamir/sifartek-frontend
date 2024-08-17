@@ -1,0 +1,25 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        'press-start': ['"Press Start 2P"', 'cursive'],
+        'old': ['"Old Standard TT"', 'static']
+
+      },
+      colors: {
+        accent: {
+          1: "var(--accent1)",
+        },
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        secondaryHovered: "var(--secondaryHovered)"
+
+      },
+    },
+  },
+  plugins: [],
+}

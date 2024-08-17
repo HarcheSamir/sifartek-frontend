@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #111111;
+  --secondary: #b39b82;
+  --secondaryHovered: #c7b39a
+}
+
+.custom-checkbox {
+  appearance: none;
+  /* Remove default checkbox styling */
+  width: 15px;
+  /* Size of the checkbox */
+  height: 15px;
+  /* Size of the checkbox */
+  border-radius: 50%;
+  /* Make it a circle */
+  border: 2px solid #e0e0e0;
+  /* Border color */
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  /* Remove default background */
+}
+
+.custom-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  /* Size of the checkmark */
+  height: 10px;
+  /* Size of the checkmark */
+  border-radius: 50%;
+  /* Make it a circle */
+  background-color: #e0e0e0;
+  /* Color when checked */
+  transform: translate(-50%, -50%);
+}
+
+.custom-checkbox:checked {
+  border-color: #e0e0e0;
+  /* Border color when checked */
+}
+
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(#000 0 0);
+  background:
+    var(--c) 0% 50%,
+    var(--c) 50% 50%,
+    var(--c) 100% 50%;
+  background-size: 20% 100%;
+  animation: l1 1s infinite linear;
+}
+
+@keyframes l1 {
+  0% {
+    background-size: 20% 100%, 20% 100%, 20% 100%
+  }
+
+  33% {
+    background-size: 20% 10%, 20% 100%, 20% 100%
+  }
+
+  50% {
+    background-size: 20% 100%, 20% 10%, 20% 100%
+  }
+
+  66% {
+    background-size: 20% 100%, 20% 100%, 20% 10%
+  }
+
+  100% {
+    background-size: 20% 100%, 20% 100%, 20% 100%
+  }
+}
+
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+
+
+.stats-scroll {
+  
+}
+
+
+
+
+
+
+/* Horizontal Scrollbar */
+::-webkit-scrollbar {
+  height: 10px;
+  /* Reduce height for horizontal scrollbar */
+  width: 10px;
+  /* Maintain width for vertical scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
