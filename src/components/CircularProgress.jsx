@@ -70,7 +70,7 @@ export default function CircularProgress({ value, max }) {
       </svg>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center">
-        <p className="font-semibold text-4xl md:text-2xl text-primary">{animatedValue.toFixed(0)}%</p>
+        <p className="font-semibold text-xl  text-primary">{animatedValue.toFixed(0)}%</p>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ export default function ParallaxOne() {
                         'https://plus.unsplash.com/premium_photo-1661901734877-88919d011b24?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                     speed: -60
                 }]}
-                className="h-[100vh] relative w-full object-scale-down"
+                className="h-[90vh] relative w-full object-scale-down"
             >
                 <div className='h-full bg-black opacity-50' />
                 <div className='absolute top-0 left-0 text-white h-full w-full flex flex-col justify-center items-center'>

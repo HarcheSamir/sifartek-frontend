@@ -8,6 +8,9 @@ import { RiSettingsLine } from "react-icons/ri";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import useAdminStore from '../stores/adminStore';
+import { FaInbox } from "react-icons/fa6";
+import { FaLaptopCode } from "react-icons/fa6";
+
 export default function SideBar() {
     const location = useLocation();
     const {logout} = useAdminStore()
@@ -21,16 +24,16 @@ export default function SideBar() {
             active: pathname === '/dashboard'
         },
         {
-            label: 'Community',
-            href: '/Community',
-            icon: BsPeople,
-            active: pathname === '/Community'
+            label: 'Inbox',
+            href: '/inbox',
+            icon: FaInbox ,
+            active: pathname === '/inbox'
         },
         {
-            label: 'Sessions',
-            href: '/Sessions',
-            icon: CiTimer,
-            active: pathname === '/Sessions'
+            label: 'Home Custom',
+            href: '/custom',
+            icon: FaLaptopCode,
+            active: pathname === '/custom'
         },
     ], [pathname]);
 
@@ -50,7 +53,7 @@ export default function SideBar() {
     ], [pathname]);
 
     return (
-        <div className='min-h-full shrink-0 border-r-3 border-zinc-100 text-neutral-600  w-0 lg:w-[20rem] duration-500  bg-white relative overflow-hidden flex flex-col items-center shadow'>
+        <div className='w-full h-full text-neutral-600    bg-white relative overflow-hidden flex flex-col items-center shadow'>
             <div className='flex items-center gap-2 mt-8 w-full ml-10'>
                 <img height={0} width={0} sizes='100vw' src={'/assets/logo2.svg'} alt='' className='w-40' />
             </div>

@@ -6,7 +6,7 @@ const useAdminStore = create((set) => ({
   user: typeof window !== "undefined" ? JSON.parse(localStorage.getItem("admin")) : null,
   isLoading: false,
 
-  login: async (data, setSubmitting) => {
+  login: async (data) => {
     set({ isLoading: true });
     try {
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {email: data.email, password: data.password});
@@ -23,7 +23,6 @@ const useAdminStore = create((set) => ({
       toast.error('Login failed');
     }
     set({ isLoading: false });
-    setSubmitting(false);
   },
 
   logout: () => {

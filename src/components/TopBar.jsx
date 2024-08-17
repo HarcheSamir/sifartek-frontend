@@ -1,6 +1,9 @@
 import React from 'react'
 import { FiSearch } from 'react-icons/fi';
 import { FaBell, FaEnvelope, FaCog } from 'react-icons/fa';
+import { RiMenu2Fill } from "react-icons/ri";
+import useLayoutStore from '../stores/layoutStore';
+import { IoCloseOutline } from "react-icons/io5";
 
 const IconButton = ({ Icon, color }) => (
     <div className="flex items-center group justify-center p-2 border-zinc-200 shadow  rounded-lg cursor-pointer hover:animate-spin">
@@ -9,9 +12,15 @@ const IconButton = ({ Icon, color }) => (
 );
 
 export default function TopBar() {
+    const { sideBar, switchSideBar } = useLayoutStore()
+
+
     return (
         <div className='w-full h-full px-4 flex items-center justify-between'>
-            <form className="text-zinc-400 w-[max(300px,50%)]">
+            <div onClick={switchSideBar} className={`p-3 lg:hidden  border-gray-300 border-2 bg-gray-50 z-50 mr-4 duration-500  rounded-lg ${sideBar ? 'ml-[20rem] bg-red-400' : 'ml-2'}`}>
+                {sideBar ? <IoCloseOutline className='h-8 w-8 text-white ' /> : <RiMenu2Fill className='h-6 w-6 ' />}
+            </div>
+            <form className={`text-zinc-400  hidden w-[max(300px,50%)] ${sideBar ? 'hidden' : 'sm:block'}`}>
                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -20,7 +29,6 @@ export default function TopBar() {
                         </svg>
                     </div>
                     <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search Mockups, Logos..." required />
-                    <button type="submit" className="text-white hidden sm:block absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
                 </div>
             </form>
             <div className='w-full h-full flex items-center justify-end gap-4'>

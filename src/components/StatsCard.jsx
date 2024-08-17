@@ -19,7 +19,7 @@ const StatsCard = ({ title, value, trendPercentage, trendText, trendDirection, p
           <p className="text-zinc-500 font-semibold pl-3 whitespace-nowrap">{trendText}</p>
         </div>
       </div>
-      <div className="w-30">
+      <div className="w-[100px]">
         <CircularProgress value={progressValue} max={100} />
       </div>
     </div>

@@ -18,7 +18,7 @@ export default function Login() {
                 rememberMe: false,
             }}
             onSubmit={(data, { setSubmitting }) => {
-                login(data, setSubmitting);
+                login(data);
             }}
         >
             <div className="w-full pl-6 p-3 bg-[#333333] flex items-center rounded-md mb-4">
