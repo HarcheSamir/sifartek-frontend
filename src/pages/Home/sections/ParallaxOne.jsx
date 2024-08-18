@@ -23,7 +23,7 @@ export default function ParallaxOne() {
             <ParallaxBanner
                 layers={[{
                     image:
-                        'https://plus.unsplash.com/premium_photo-1663093806285-d905ca96c661?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                        'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                     speed: -60
                 }]}
                 className="h-[100vh] relative w-full object-scale-down"
