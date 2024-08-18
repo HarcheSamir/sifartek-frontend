@@ -17,6 +17,8 @@ export default function PublicNavigator() {
                 <Route path="/test" element={<Test />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/dashboard" element={<Navigate to="/login" />} />
+                <Route path="/custom" element={<Navigate to="/login" />} />
+                <Route path="/inbox" element={<Navigate to="/login" />} />
                 <Route path="*" element={<NotFound />} />
 
             </Routes>
