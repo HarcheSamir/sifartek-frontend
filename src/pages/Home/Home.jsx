@@ -10,7 +10,7 @@ import Footer from "./sections/Footer";
 export default function Home() {
   return (
     <main className="flex min-h-screen select-none flex-col ">
-      {/* <Navbar/> */}
+      <Navbar/>
       <Hero/>
       <Rooms/>
       <HomeAmbience/>

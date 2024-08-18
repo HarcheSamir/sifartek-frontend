@@ -11,7 +11,6 @@ export default function PublicNavigator() {
     return (
         <div className='w-screen h-screen'>
             <ScrollToTop/>
-            <Navbar/>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

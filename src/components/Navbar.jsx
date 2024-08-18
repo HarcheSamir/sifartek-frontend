@@ -13,7 +13,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className='fixed top-0 z-40 py-6 items-center bg-primary w-full justify-between flex px-4 lg:px-20 text-[#666666]'>
+        <div className='fixed top-0 z-40 py-4 items-center bg-primary w-full justify-between flex px-4 lg:px-20 text-[#666666]'>
             <img 
                 height={0} 
                 width={0} 
@@ -23,13 +23,13 @@ export default function Navbar() {
                 className='w-32 cursor-pointer duration-300 hover:scale-110' 
                 onClick={() => navigate('/login')} 
             />
-            <div className='md:flex hidden md:gap-4 xl:gap-20 max-w-[80%] items-center'>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/')}>Home</p>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/rooms')}>Rooms</p>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/elements')}>Elements</p>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/pages')}>Pages</p>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/blog')}>Blog</p>
-                <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/contact')}>Contact</p>
+            <div className='md:flex text-lg hidden md:gap-4 xl:gap-20 max-w-[80%] items-center'>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/')}>Home</p>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/rooms')}>Rooms</p>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/elements')}>Elements</p>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/pages')}>Pages</p>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/blog')}>Blog</p>
+                <p className=' font-normal cursor-pointer' onClick={() => handleNavigation('/contact')}>Contact</p>
             </div>
             <div className='cursor-pointer hidden md:block whitespace-nowrap px-4 py-2 rounded text-white font-semibold hover:bg-secondaryHovered bg-secondary'>
                 Book Now
