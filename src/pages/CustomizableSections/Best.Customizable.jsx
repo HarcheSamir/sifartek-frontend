@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck } from "react-icons/fa";
-import CustomizableText from '../../../components/CustomizableText';
-import useContentStore from '../../../stores/contentStore';
-import ContentEditor from '../../../components/ContentEditor';
+import CustomizableText from '../../components/CustomizableText';
+import useContentStore from '../../stores/contentStore';
+import ContentEditor from '../../components/ContentEditor';
 export default function Best() {
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);

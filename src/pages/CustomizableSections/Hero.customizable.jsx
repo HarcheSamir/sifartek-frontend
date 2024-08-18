@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import HeroCarousel from '../../../components/HeroCarousel';
-import BookingButton from '../../../components/BookingButton';
-import useContentStore from '../../../stores/contentStore';
-import CustomizableText from '../../../components/CustomizableText';
-import ContentEditor from '../../../components/ContentEditor'; // Import the new component
+import HeroCarousel from '../../components/HeroCarousel';
+import BookingButton from '../../components/BookingButton';
+import useContentStore from '../../stores/contentStore';
+import CustomizableText from '../../components/CustomizableText';
+import ContentEditor from '../../components/ContentEditor'; // Import the new component
 
 export default function Hero() {
     const { content, fetchContent, editContent } = useContentStore();
@@ -54,24 +54,24 @@ export default function Hero() {
             <div className='absolute h-full w-full bg-black opacity-60' />
             <div className='absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
                 <CustomizableText
-                    className='mb-4 md:text-xl font-thin text-center cursor-pointer'
+                    className='mb-4 md:text-xl font-thin text-center '
                     html={getItemContent(`${item.key}Subtitle`) || contentItems.find(i => i.key === `${item.key}Subtitle`)?.defaultValue}
                     onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}Subtitle`))}
                 />
                 <CustomizableText
-                    className='font-old text-5xl md:text-8xl text-center cursor-pointer'
+                    className='font-old text-5xl md:text-8xl text-center'
                     html={getItemContent(`${item.key}Title`) || contentItems.find(i => i.key === `${item.key}Title`)?.defaultValue}
                     onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}Title`))}
                 />
                 {contentItems.find(i => i.key === `${item.key}ButtonText`) && (
                     <CustomizableText
-                        className='whitespace-nowrap hover:scale-110 duration-300 text-lg mt-12 cursor-pointer py-4 px-6 border-[2px]'
+                        className='whitespace-nowrap hover:scale-110 duration-300 text-lg mt-12 py-4 px-6 border-[2px]'
                         html={getItemContent(`${item.key}ButtonText`) || contentItems.find(i => i.key === `${item.key}ButtonText`)?.defaultValue}
                         onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}ButtonText`))}
                     />
                 )}
             </div>
-            <img height={0} width={0} sizes='100vw' alt='' className='h-full w-full object-cover' src={item.src} />
+            <img height={0} width={0} sizes='100vw' alt='' className='h-full w-full object-cover' src={item.src} /> 
         </div>
     );
 

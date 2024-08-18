@@ -1,9 +1,9 @@
 import React from 'react'
-import Hero from './sections/Hero.customizable'
-import Rooms from './sections/Rooms.customizable'
-import HomeAmbience from './sections/HomeAmbience.customizable'
-import ParallaxOne from './sections/Parralax.customizable'
-import Best from './sections/Best.Customizable'
+import Hero from './CustomizableSections/Hero.customizable'
+import Rooms from './CustomizableSections/Rooms.customizable'
+import HomeAmbience from './CustomizableSections/HomeAmbience.customizable'
+import ParallaxOne from './CustomizableSections/Parralax.customizable'
+import Best from './CustomizableSections/Best.Customizable'
 export default function Custom() {
   return (
     <div className='w-full h-full overflow-y-scroll relative flex flex-col'>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CustomizableText from '../../../components/CustomizableText';
-import ContentEditor from '../../../components/ContentEditor';
-import useContentStore from '../../../stores/contentStore';
+import CustomizableText from '../../components/CustomizableText';
+import ContentEditor from '../../components/ContentEditor';
+import useContentStore from '../../stores/contentStore';
 
 export default function HomeAmbience() {
     const { content, fetchContent, editContent } = useContentStore();
@@ -54,17 +54,17 @@ export default function HomeAmbience() {
                 />
                 <div className="w-full py-20 flex flex-col justify-center pl-8 md:pl-20">
                     <CustomizableText
-                        className="font-old text-3xl md:text-6xl text-zinc-200 cursor-pointer"
+                        className="font-old text-3xl md:text-6xl text-zinc-200 "
                         html={getItemContent('title') || items[0].defaultValue}
                         onClick={() => handleEditClick(items[0])}
                     />
                     <CustomizableText
-                        className="text-sm md:text-lg text-zinc-300 ml-2 mt-4 indent-2 cursor-pointer"
+                        className="text-sm md:text-lg text-zinc-300 ml-2 mt-4 indent-2"
                         html={getItemContent('description') || items[1].defaultValue}
                         onClick={() => handleEditClick(items[1])}
                     />
                     <CustomizableText
-                        className="bg-secondary w-min px-8 cursor-pointer hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
+                        className="bg-secondary w-min px-8  hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
                         html={getItemContent('buttonText') || items[2].defaultValue}
                         onClick={() => handleEditClick(items[2])}
                     />

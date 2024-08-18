@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from './sections/Hero'
 import DropUs from './sections/DropUs'
 import Parallax from './sections/Parallax'
-import Footer from '../Home/sections/Footer'
+import Footer from '../CustomizableSections/Footer'
 import Navbar from '../../components/Navbar'
 export default function Contact() {
   return (

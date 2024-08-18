@@ -5,9 +5,9 @@ import { PiAirplaneTiltThin } from "react-icons/pi";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { PiCityThin } from "react-icons/pi";
 import { TbBeach } from "react-icons/tb";
-import CustomizableText from '../../../components/CustomizableText';
-import ContentEditor from '../../../components/ContentEditor';
-import useContentStore from '../../../stores/contentStore';
+import CustomizableText from '../../components/CustomizableText';
+import ContentEditor from '../../components/ContentEditor';
+import useContentStore from '../../stores/contentStore';
 
 export default function ParallaxOne() {
     const { content, fetchContent, editContent } = useContentStore();

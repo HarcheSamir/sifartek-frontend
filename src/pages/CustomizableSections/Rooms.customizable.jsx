@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import RoomsCarousel from '../../../components/RoomsCarousel';
-import CustomizableText from '../../../components/CustomizableText';
-import ContentEditor from '../../../components/ContentEditor';
-import useContentStore from '../../../stores/contentStore';
+import RoomsCarousel from '../../components/RoomsCarousel';
+import CustomizableText from '../../components/CustomizableText';
+import ContentEditor from '../../components/ContentEditor';
+import useContentStore from '../../stores/contentStore';
 
 export default function Rooms() {
     const { content, fetchContent, editContent } = useContentStore();
@@ -55,12 +55,12 @@ export default function Rooms() {
             <img sizes="100vw" height={0} width={0} className="w-full h-1/3 sm:h-[70%]" src={image} alt="" />
             <div className="flex flex-col w-full h-2/3 sm:h-[30%] p-4">
                 <CustomizableText
-                    className="font-old text-xl lg:text-3xl text-zinc-800 cursor-pointer"
+                    className="font-old text-xl lg:text-3xl text-zinc-800 "
                     html={getItemContent(titleKey) || 'Default Room Title'}
                     onClick={() => handleEditClick({ key: titleKey, label: 'Room Title', type: 'text' })}
                 />
                 <CustomizableText
-                    className="text-zinc-600 font-thin text-sm lg:text-lg cursor-pointer"
+                    className="text-zinc-600 font-thin text-sm lg:text-lg "
                     html={getItemContent(descriptionKey) || 'Default Room Description'}
                     onClick={() => handleEditClick({ key: descriptionKey, label: 'Room Description', type: 'text' })}
                 />
@@ -100,12 +100,12 @@ export default function Rooms() {
         <>
             <div className="w-full px-2 sm:px-8 min-h-screen flex flex-col items-center">
                 <CustomizableText
-                    className="mt-40 text-zinc-600 mb-4 text-sm sm:text-lg cursor-pointer"
+                    className="mt-40 text-zinc-600 mb-4 text-sm sm:text-lg "
                     html={getItemContent('roomsSubtitle') || contentItems.find(i => i.key === 'roomsSubtitle')?.defaultValue}
                     onClick={() => handleEditClick(contentItems.find(i => i.key === 'roomsSubtitle'))}
                 />
                 <CustomizableText
-                    className="font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20 cursor-pointer"
+                    className="font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20 "
                     html={getItemContent('roomsTitle') || contentItems.find(i => i.key === 'roomsTitle')?.defaultValue}
                     onClick={() => handleEditClick(contentItems.find(i => i.key === 'roomsTitle'))}
                 />

@@ -6,7 +6,7 @@ import Dashboard from '../pages/Dashboard';
 import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
 import Inbox from '../pages/Inbox';
-import Custom from '../pages/CustomizableHome/Custom';
+import Custom from '../pages/Custom'
 import useLayoutStore from '../stores/layoutStore';
 import ScrollToTop from '../components/ScrollToTop';
 export default function DashboardNavigator() {
