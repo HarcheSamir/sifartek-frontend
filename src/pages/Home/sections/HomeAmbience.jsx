@@ -1,4 +1,5 @@
 import React from 'react'
+import useImageStore from '../../../stores/imageStore'
 
 export default function HomeAmbience() {
     return (

@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Rooms() {
     return (
-        <div className='w-screen px-2 sm:px-8 min-h-screen flex flex-col items-center  '>
+        <div className='w-screen px-2 sm:px-8  flex flex-col items-center  '>
             <p className='mt-40 text-zinc-600 mb-4  text-sm sm:text-lg'>ACCOMODATION & COMFORT</p>
             <p className='font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20'>Eco-Inspired Lodging</p>
             <RoomsCarousel items={items} />
