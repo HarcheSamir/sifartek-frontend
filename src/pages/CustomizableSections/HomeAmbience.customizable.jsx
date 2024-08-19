@@ -64,7 +64,7 @@ export default function HomeAmbience() {
                     <CustomizableText
                         className="bg-secondary w-min px-8  hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
                         html={getItemContent('buttonText')}
-                        onClick={() => handleEditClick('buttoText')}
+                        onClick={() => handleEditClick('buttonText')}
                     />
                 </div>
             </div>
