@@ -2,7 +2,7 @@ import React from 'react';
 import useContentStore from '../stores/contentStore';
 
 const CustomizableImage = ({ className, src }) => {
-    const [isLoadingg, setIsLoading] = useState(true);
+    const [isLoadingg, setIsLoading] = React.useState(true);
 
     const { isLoading } = useContentStore();
     React.useEffect(() => {
@@ -22,7 +22,7 @@ const CustomizableImage = ({ className, src }) => {
                 </div>
             )
                 :
-                <img className={`w-full h-full ${isLoading ? 'opacity-50' : ''}`} src={src} alt="" />
+                <img className={`w-full object-cover h-full ${isLoading ? 'opacity-50' : ''}`} src={src} alt="" />
 
             }
         </div>
