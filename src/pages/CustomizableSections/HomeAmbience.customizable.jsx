@@ -1,77 +1,104 @@
-import React, { useState, useEffect } from 'react';
+// pages/HomeAmbience.js
+import React, { useState } from 'react';
 import CustomizableText from '../../components/CustomizableText';
 import ContentEditor from '../../components/ContentEditor';
+import ImageEditor from '../../components/ImageEditor';
+import useAdminStore from '../../stores/adminStore';
 import useContentStore from '../../stores/contentStore';
-import content from '../../constants/content'
+import content from '../../constants/content';
+
 const contentItems = content.filter(item => item.section === 'ambience');
+
 export default function HomeAmbience() {
+    const { user } = useAdminStore()
     const { content, fetchContent, editContent } = useContentStore();
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditingText, setIsEditingText] = useState(false);
+    const [isEditingImage, setIsEditingImage] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-
-
-
-
+    const handleEditImageClick = (key) => {
+        setSelectedItem({ key });
+        setIsEditingImage(true);
+    };
+    const handleSaveImage = (key, newImageUrl) => {
+        editContent('ambience', key, newImageUrl).then(() => {
+            fetchContent();
+            setIsEditingImage(false);
+        });
+    };
     const getItemContent = (key) => {
-        const entry = Array.isArray(content) ? content.find((entry) => entry.item === key) : null;
+        const entry = Array.isArray(content) ? content.filter(item => item.section === 'ambience').find((entry) => entry.item === key) : null;
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
-
-    const handleEditClick = (key) => {
-        const item = contentItems.find(item => item.key === key)
+    const handleEditTextClick = (key) => {
+        const item = contentItems.find(item => item.key === key);
         setSelectedItem({
             key: item.key,
             content: getItemContent(item.key),
             label: item.label,
             type: item.type
         });
-        setIsEditing(true);
+        setIsEditingText(true);
     };
 
-    const handleSave = (key, newContent) => {
-        editContent('homeAmbience', key, newContent).then(() => {
+
+
+    const handleSaveText = (key, newContent) => {
+        editContent('ambience', key, newContent).then(() => {
             fetchContent();
-            setIsEditing(false);
+            setIsEditingText(false);
         });
     };
 
+
+
     return (
         <>
-            <div className="lg:h-screen w-full bg-primary md:mt-40 flex flex-col lg:flex-row">
+            <div className="lg:h-screen w-full bg-primary relative md:mt-40 flex flex-col lg:flex-row">
+                <img className='absolute cursor-pointer hover:scale-125 duration-300  top-[40%] z-50 left-[25%] w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                    onClick={() => handleEditImageClick('image')}
+                />
                 <img
                     sizes="100vw"
                     height={0}
                     width={0}
                     className="w-full lg:w-[60%] h-full object-cover"
                     alt=""
-                    src="https://images.unsplash.com/photo-1602081115720-72e5b0a254b8?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={getItemContent('image')}
                 />
-                <div className="w-full py-20 flex flex-col justify-center pl-8 md:pl-20">
+                <div className="grow py-20 flex flex-col justify-center pl-8 md:pl-20">
                     <CustomizableText
-                        className="font-old text-xl md:text-5xl text-zinc-200 "
+                        className="font-old text-xl md:text-5xl text-zinc-200"
                         html={getItemContent('title')}
-                        onClick={() => handleEditClick('title')}
+                        onClick={() => handleEditTextClick('title')}
                     />
                     <CustomizableText
-                        className="text-xs  md:text-sm text-zinc-300 ml-2 mt-4 w-[90%] indent-2"
+                        className="text-xs md:text-sm text-zinc-300 ml-2 mt-4 w-[90%] indent-2"
                         html={getItemContent('description')}
-                        onClick={() => handleEditClick('description')}
+                        onClick={() => handleEditTextClick('description')}
                     />
                     <CustomizableText
-                        className="bg-secondary text-xs w-min px-8  hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
+                        className="bg-secondary text-xs w-min px-8 hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
                         html={getItemContent('buttonText')}
-                        onClick={() => handleEditClick('buttonText')}
+                        onClick={() => handleEditTextClick('buttonText')}
                     />
                 </div>
             </div>
 
-            {isEditing && selectedItem && (
+            {isEditingText && selectedItem && (
                 <ContentEditor
                     item={selectedItem.key}
                     content={selectedItem.content}
-                    onSave={handleSave}
-                    onCancel={() => setIsEditing(false)}
+                    onSave={handleSaveText}
+                    onCancel={() => setIsEditingText(false)}
+                />
+            )}
+
+            {isEditingImage && selectedItem && (
+                <ImageEditor
+                    item={selectedItem.key}
+                    onSave={handleSaveImage}
+                    onCancel={() => setIsEditingImage(false)}
                 />
             )}
         </>

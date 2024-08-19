@@ -3,16 +3,29 @@ import { FaCheck } from "react-icons/fa";
 import CustomizableText from '../../components/CustomizableText';
 import useContentStore from '../../stores/contentStore';
 import ContentEditor from '../../components/ContentEditor';
+import ImageEditor from '../../components/ImageEditor';
+import useAdminStore from '../../stores/adminStore';
 import content from '../../constants/content'
 const contentItems = content.filter(item => item.section === 'best');
 export default function Best() {
+    const { user } = useAdminStore()
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
-
+    const [isEditingImage, setIsEditingImage] = useState(false);
+    const handleEditImageClick = (key) => {
+        setSelectedItem({ key });
+        setIsEditingImage(true);
+    };
+    const handleSaveImage = (key, newImageUrl) => {
+        editContent('best', key, newImageUrl).then(() => {
+            fetchContent();
+            setIsEditingImage(false);
+        });
+    };
     const getItemContent = (key) => {
-        const entry = Array.isArray(content) ? content.find((entry) => entry.item === key) : null;
+        const entry = Array.isArray(content) ? content.filter(item => item.section === 'best').find((entry) => entry.item === key) : null;
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
@@ -40,12 +53,12 @@ export default function Best() {
                 <CustomizableText
                     className='mt-40 text-zinc-600 mb-4 text-sm sm:text-lg'
                     html={getItemContent('whatsUp')}
-                    onClick={()=>handleEditClick('whatsUp')}
+                    onClick={() => handleEditClick('whatsUp')}
                 />
                 <CustomizableText
                     className='font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20'
                     html={getItemContent('bestValues')}
-                    onClick={()=>handleEditClick('bestValues')}
+                    onClick={() => handleEditClick('bestValues')}
                 />
                 <div className='grid  grid-cols-1 md:grid-cols-3 w-[90%] gap-8'>
                     {/* First Card */}
@@ -54,7 +67,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-bold'
                                 html={getItemContent('smallRoomTitle1')}
-                                onClick={()=>handleEditClick('smallRoomTitle1')}
+                                onClick={() => handleEditClick('smallRoomTitle1')}
                             />
                         </div>
                         <div className='col-span-8 border-zinc-300 row-span-2 border-b text-7xl font-semibold flex items-center justify-center h-full'>
@@ -63,7 +76,7 @@ export default function Best() {
                                 <CustomizableText
                                     className='text-7xl font-semibold'
                                     html={getItemContent('smallRoomPrice1')}
-                                    onClick={()=>handleEditClick('smallRoomPrice1')}
+                                    onClick={() => handleEditClick('smallRoomPrice1')}
                                 />
                                 <p className='text-lg h-full align-baseline text-zinc-500 '>day</p>
 
@@ -76,7 +89,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('freeWifi1')}
-                                onClick={()=>handleEditClick('freeWifi1')}
+                                onClick={() => handleEditClick('freeWifi1')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -86,7 +99,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('greatSeaView1')}
-                                onClick={()=>handleEditClick('greatSeaView1')}
+                                onClick={() => handleEditClick('greatSeaView1')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -96,7 +109,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('homeMadeFood1')}
-                                onClick={()=>handleEditClick('homeMadeFood1')}
+                                onClick={() => handleEditClick('homeMadeFood1')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -106,7 +119,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('roomShare1')}
-                                onClick={()=>handleEditClick('roomShare1')}
+                                onClick={() => handleEditClick('roomShare1')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -116,7 +129,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('acBathtub1')}
-                                onClick={()=>handleEditClick('acBathtub1')}
+                                onClick={() => handleEditClick('acBathtub1')}
                             />
                         </div>
                     </div>
@@ -127,7 +140,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-bold'
                                 html={getItemContent('smallRoomTitle2')}
-                                onClick={()=>handleEditClick('smallRoomTitle2')}
+                                onClick={() => handleEditClick('smallRoomTitle2')}
                             />
                         </div>
                         <div className='col-span-8 border-zinc-300 row-span-2 border-b text-7xl font-semibold flex items-center justify-center h-full'>
@@ -136,7 +149,7 @@ export default function Best() {
                                 <CustomizableText
                                     className='text-7xl font-semibold'
                                     html={getItemContent('smallRoomPrice2')}
-                                    onClick={()=>handleEditClick('smallRoomPrice2')}
+                                    onClick={() => handleEditClick('smallRoomPrice2')}
                                 />
                                 <p className='text-lg h-full align-baseline text-zinc-500 '>day</p>
 
@@ -149,7 +162,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('freeWifi2')}
-                                onClick={()=>handleEditClick('freeWifi2')}
+                                onClick={() => handleEditClick('freeWifi2')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -159,7 +172,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('greatSeaView2')}
-                                onClick={()=>handleEditClick('greatSeaView2')}
+                                onClick={() => handleEditClick('greatSeaView2')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -169,7 +182,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('homeMadeFood2')}
-                                onClick={()=>handleEditClick('homeMadeFood2')}
+                                onClick={() => handleEditClick('homeMadeFood2')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -179,7 +192,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('roomShare2')}
-                                onClick={()=>handleEditClick('roomShare2')}
+                                onClick={() => handleEditClick('roomShare2')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -189,7 +202,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('acBathtub2')}
-                                onClick={()=>handleEditClick('acBathtub2')}
+                                onClick={() => handleEditClick('acBathtub2')}
                             />
                         </div>
                     </div>
@@ -200,7 +213,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-bold'
                                 html={getItemContent('roomTitle3')}
-                                onClick={()=>handleEditClick('roomTitle3')}
+                                onClick={() => handleEditClick('roomTitle3')}
                             />
                         </div>
                         <div className='col-span-8 border-zinc-300 row-span-2 border-b text-7xl font-semibold flex items-center justify-center h-full'>
@@ -209,7 +222,7 @@ export default function Best() {
                                 <CustomizableText
                                     className='text-7xl font-semibold'
                                     html={getItemContent('roomPrice3')}
-                                    onClick={()=>handleEditClick('roomPrice3')}
+                                    onClick={() => handleEditClick('roomPrice3')}
                                 />
                                 <p className='text-lg h-full align-baseline text-zinc-500 '>day</p>
 
@@ -222,7 +235,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('freeWifi3')}
-                                onClick={()=>handleEditClick('freeWifi3')}
+                                onClick={() => handleEditClick('freeWifi3')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -232,7 +245,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('greatSeaView3')}
-                                onClick={()=>handleEditClick('greatSeaView3')}
+                                onClick={() => handleEditClick('greatSeaView3')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -242,7 +255,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('homeMadeFood3')}
-                                onClick={()=>handleEditClick('homeMadeFood3')}
+                                onClick={() => handleEditClick('homeMadeFood3')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -252,7 +265,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('roomShare3')}
-                                onClick={()=>handleEditClick('roomShare3')}
+                                onClick={() => handleEditClick('roomShare3')}
                             />
                         </div>
                         <div className='col-span-1 border-zinc-300 row-span-1 border-b border-r flex items-center justify-center'>
@@ -262,7 +275,7 @@ export default function Best() {
                             <CustomizableText
                                 className='text-xl font-semibold'
                                 html={getItemContent('acBathtub3')}
-                                onClick={()=>handleEditClick('acBathtub3')}
+                                onClick={() => handleEditClick('acBathtub3')}
                             />
                         </div>
                     </div>
@@ -276,6 +289,13 @@ export default function Best() {
                     content={selectedItem.content}
                     onSave={handleSave}
                     onCancel={() => setIsEditing(false)}
+                />
+            )}
+              {isEditingImage && selectedItem && (
+                <ImageEditor
+                    item={selectedItem.key}
+                    onSave={handleSaveImage}
+                    onCancel={() => setIsEditingImage(false)}
                 />
             )}
         </>

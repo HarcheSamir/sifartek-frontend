@@ -5,6 +5,8 @@ const content = [
     { section: 'hero', key: 'carousel1ButtonText', defaultValue: 'VIEW EXCLUSIVE ROOMS' },
     { section: 'hero', key: 'carousel2Title', defaultValue: 'Comfort & More.<br />Bay & Beyond.' },
     { section: 'hero', key: 'carousel2Subtitle', defaultValue: 'The finest hotel near Panama Beach' },
+    { section: 'hero', key: 'image1', defaultValue: 'https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'hero', key: 'image2', defaultValue: 'https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     //Rooms.customizable.jsx
     { section: 'rooms', key: 'roomsTitle', defaultValue: 'Eco-Inspired Lodging' },
     { section: 'rooms', key: 'roomsSubtitle', defaultValue: 'ACCOMMODATION & COMFORT' },
@@ -18,10 +20,16 @@ const content = [
     { section: 'rooms', key: 'executiveRoomDescription', defaultValue: 'Elegantly designed room for business travelers.' },
     { section: 'rooms', key: 'emptyTitleRoomTitle', defaultValue: 'Empty Room' },
     { section: 'rooms', key: 'emptyTitleRoomDescription', defaultValue: 'A room that’s ready for your next stay.' },
+    { section: 'rooms', key: 'image1', defaultValue: 'https://images.unsplash.com/photo-1657907157592-dd6cfb9d06cf?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'rooms', key: 'image2', defaultValue: 'https://plus.unsplash.com/premium_photo-1661780295073-98db12600af0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'rooms', key: 'image3', defaultValue: 'https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'rooms', key: 'image4', defaultValue: 'https://images.unsplash.com/photo-1615874694520-474822394e73?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'rooms', key: 'image5', defaultValue: 'https://images.unsplash.com/photo-1600494448850-6013c64ba722?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     //HomeAmbience.customizable.jsx
     { section: 'ambience', key: 'title', defaultValue: 'Get Home-like Ambience' },
     { section: 'ambience', key: 'description', defaultValue: 'A self-described luxury temporary residence, the AKA Beverly Hills offers guests the space and comfort of an apartment, with the service and amenities you’d expect at a five-star hotel.' },
     { section: 'ambience', key: 'buttonText', defaultValue: 'VIEW EXCLUSIVE ROOM' },
+    { section: 'ambience', key: 'image', defaultValue: 'https://images.unsplash.com/photo-1602081115720-72e5b0a254b8?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     //Parralax.customizable.jsx
     { section: 'parallax', key: 'section1Subtitle', defaultValue: 'ACCOMMODATION & COMFORT' },
     { section: 'parallax', key: 'section1Title', defaultValue: 'Eco-Inspired Lodging' },
@@ -46,6 +54,8 @@ const content = [
     { section: 'parallax', key: 'review2Text', defaultValue: '“Fantastic stay! The staff was incredibly friendly and the amenities were top-notch. Highly recommend!”' },
     { section: 'parallax', key: 'review3Name', defaultValue: 'Michael Brown' },
     { section: 'parallax', key: 'review3Text', defaultValue: '“An unforgettable experience! The location was ideal, and the service was exceptional. Will definitely return.”' },
+    { section: 'parallax', key: 'image1', defaultValue: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { section: 'parallax', key: 'image2', defaultValue: 'https://plus.unsplash.com/premium_photo-1661901734877-88919d011b24?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     //Best.Customizable.jsx
     { section: 'best', key: 'whatsUp', defaultValue: "What's Up" },
     { section: 'best', key: 'bestValues', defaultValue: 'Best Values' },

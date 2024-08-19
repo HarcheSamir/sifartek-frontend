@@ -3,7 +3,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const useImageStore = create((set) => ({
-  contacts: [],
   isLoading: false,
   
   uploadImage: async (files) => {
@@ -12,7 +11,7 @@ const useImageStore = create((set) => ({
     if (!files || files.length === 0) {
       toast.error('No files selected');
       set({ isLoading: false });
-      return;
+      return null; // Return null if no files are selected
     }
 
     try {
@@ -33,22 +32,19 @@ const useImageStore = create((set) => ({
 
       if (data.secure_url) {
         console.log('Image uploaded: ', data.secure_url);
-        toast.success(`Image uploaded: ${data.secure_url}`);
-        
-        // Assuming you want to store the image URL in Zustand state
-        set((state) => ({
-          contacts: [...state.contacts, { imageUrl: data.secure_url }],
-        }));
+        return data.secure_url; // Return the image URL on success
       } else {
         throw new Error('Failed to retrieve image URL');
       }
     } catch (error) {
       console.error('Error uploading image:', error.message || error);
       toast.error(`Failed to upload image: ${error.message}`);
+      return null; // Return null on error
     } finally {
       set({ isLoading: false });
     }
   },
 }));
+
 
 export default useImageStore;

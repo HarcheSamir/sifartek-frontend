@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { formatDistanceToNow } from "date-fns";
 import useContactStore from "../stores/contactStore";
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@heroicons/react/solid';
 
@@ -134,20 +135,20 @@ const ContactTable = () => {
                           </label>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-700">
                         {contact.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                         {contact.email}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                      <td className="px-6 py-4 whitespace-nowrap text-xs  font-medium text-gray-700">
                         {contact.subject}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                      <td className="px-6 py-4 whitespace-nowrap text-xs font-medium text-gray-700">
                         {contact.message}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                        {new Date(contact.createdAt).toLocaleDateString()}
+                      <td className="px-6 py-4 whitespace-nowrap text-xs  text-gray-700">
+                        {formatDistanceToNow(new Date(contact.createdAt), { addSuffix: true })}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <button
@@ -218,13 +219,12 @@ const ContactTable = () => {
             </div>
             <div className="mb-4">
               <h3 className="text-gray-700 font-medium">Message:</h3>
-              <p className="text-gray-900">{selectedContact.message}
-                
-              </p>
+              <p className="text-gray-900">{selectedContact.message}</p>
             </div>
             <div className="mb-4">
-              <h3 className="text-gray-700 font-medium">Date:</h3>
-              <p className="text-gray-900">{new Date(selectedContact.createdAt).toLocaleDateString()}</p>
+              <p className="text-gray-900 text-xs text-right">  
+                {new Date(selectedContact.createdAt).toLocaleString()}
+              </p>
             </div>
             <div className="flex justify-end">
               <button

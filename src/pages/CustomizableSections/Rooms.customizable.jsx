@@ -3,24 +3,37 @@ import RoomsCarousel from '../../components/RoomsCarousel';
 import CustomizableText from '../../components/CustomizableText';
 import ContentEditor from '../../components/ContentEditor';
 import useContentStore from '../../stores/contentStore';
+import ImageEditor from '../../components/ImageEditor';
+import useAdminStore from '../../stores/adminStore';
 import content from '../../constants/content'
 const contentItems = content.filter(item => item.section === 'rooms');
 
 export default function Rooms() {
+    const { user } = useAdminStore()
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-
+    const [isEditingImage, setIsEditingImage] = useState(false);
+    const handleEditImageClick = (key) => {
+        setSelectedItem({ key });
+        setIsEditingImage(true);
+    };
+    const handleSaveImage = (key, newImageUrl) => {
+        editContent('rooms', key, newImageUrl).then(() => {
+            fetchContent();
+            setIsEditingImage(false);
+        });
+    };
 
 
 
 
     const getItemContent = (key) => {
-        const entry = Array.isArray(content) ? content.find((entry) => entry.item === key) : null;
+        const entry = Array.isArray(content) ? content.filter(item => item.section === 'rooms').find((entry) => entry.item === key) : null;
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
-   
+
 
     const handleEditClick = (key) => {
         const item = contentItems.find(item => item.key === key);
@@ -42,17 +55,25 @@ export default function Rooms() {
 
     const RoomComponent = ({ image, titleKey, descriptionKey }) => (
         <div className="w-full aspect-[1/2] sm:aspect-[2/3] md:aspect-square relative">
-            <img sizes="100vw" height={0} width={0} className="w-full h-1/3 sm:h-[70%]" src={image} alt="" />
+            <div className='w-full h-1/3 sm:h-[70%] relative'>
+                <img sizes="100vw" height={0} width={0} className="w-full h-full "
+                    src={getItemContent(image)}
+                    alt="" />
+                {user && <img className='absolute cursor-pointer hover:scale-125 duration-300  top-1/2 z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                    onClick={() => handleEditImageClick(image)}
+                />}
+            </div>
+
             <div className="flex flex-col w-full h-2/3 sm:h-[30%] p-4">
                 <CustomizableText
                     className="font-old text-lg lg:text-2xl text-zinc-800 "
                     html={getItemContent(titleKey)}
-                    onClick={()=>handleEditClick(titleKey)}
+                    onClick={() => handleEditClick(titleKey)}
                 />
                 <CustomizableText
                     className="text-zinc-600 font-thin text-xs lg:text-sm "
-                    html={getItemContent(descriptionKey) }
-                    onClick={()=>handleEditClick(descriptionKey)}
+                    html={getItemContent(descriptionKey)}
+                    onClick={() => handleEditClick(descriptionKey)}
                 />
             </div>
         </div>
@@ -60,27 +81,27 @@ export default function Rooms() {
 
     const items = [
         {
-            image: 'https://images.unsplash.com/photo-1657907157592-dd6cfb9d06cf?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            image: 'image1',
             titleKey: 'penthouseSuiteTitle',
             descriptionKey: 'penthouseSuiteDescription',
         },
         {
-            image: 'https://plus.unsplash.com/premium_photo-1661780295073-98db12600af0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            image: 'image2',
             titleKey: 'janitorSuiteTitle',
             descriptionKey: 'janitorSuiteDescription',
         },
         {
-            image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            image: 'image3',
             titleKey: 'familyDoubleTitle',
             descriptionKey: 'familyDoubleDescription',
         },
         {
-            image: 'https://images.unsplash.com/photo-1615874694520-474822394e73?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            image: 'image4',
             titleKey: 'executiveRoomTitle',
             descriptionKey: 'executiveRoomDescription',
         },
         {
-            image: 'https://images.unsplash.com/photo-1600494448850-6013c64ba722?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            image: 'image5',
             titleKey: 'emptyTitleRoomTitle',
             descriptionKey: 'emptyTitleRoomDescription',
         },
@@ -92,12 +113,12 @@ export default function Rooms() {
                 <CustomizableText
                     className="mt-40 text-zinc-600 mb-4 text-xs sm:text-sm "
                     html={getItemContent('roomsSubtitle')}
-                    onClick={()=>handleEditClick('roomsSubtitle')}
+                    onClick={() => handleEditClick('roomsSubtitle')}
                 />
                 <CustomizableText
                     className="font-old text-center text-xl sm:text-4xl text-zinc-800 mb-20 "
                     html={getItemContent('roomsTitle')}
-                    onClick={()=>handleEditClick('roomsTitle')}
+                    onClick={() => handleEditClick('roomsTitle')}
                 />
                 <RoomsCarousel
                     items={items.map(item => (
@@ -117,6 +138,13 @@ export default function Rooms() {
                     content={selectedItem.content}
                     onSave={handleSave}
                     onCancel={() => setIsEditing(false)}
+                />
+            )}
+            {isEditingImage && selectedItem && (
+                <ImageEditor
+                    item={selectedItem.key}
+                    onSave={handleSaveImage}
+                    onCancel={() => setIsEditingImage(false)}
                 />
             )}
         </>

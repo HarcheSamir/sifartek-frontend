@@ -8,16 +8,29 @@ import { TbBeach } from "react-icons/tb";
 import CustomizableText from '../../components/CustomizableText';
 import ContentEditor from '../../components/ContentEditor';
 import useContentStore from '../../stores/contentStore';
+import ImageEditor from '../../components/ImageEditor';
+import useAdminStore from '../../stores/adminStore';
 import content from '../../constants/content'
 const contentItems = content.filter(item => item.section === 'parallax');
 export default function ParallaxOne() {
+    const { user } = useAdminStore()
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-
+    const [isEditingImage, setIsEditingImage] = useState(false);
+    const handleEditImageClick = (key) => {
+        setSelectedItem({ key });
+        setIsEditingImage(true);
+    };
+    const handleSaveImage = (key, newImageUrl) => {
+        editContent('parallax', key, newImageUrl).then(() => {
+            fetchContent();
+            setIsEditingImage(false);
+        });
+    };
 
     const getItemContent = (key) => {
-        const entry = Array.isArray(content) ? content.find((entry) => entry.item === key) : null;
+        const entry = Array.isArray(content) ? content.filter(item => item.section === 'parallax').find((entry) => entry.item === key) : null;
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
@@ -33,8 +46,8 @@ export default function ParallaxOne() {
     };
 
     const handleSave = (key, newContent) => {
-        editContent('parallaxOne', key, newContent).then(() => {
-            fetchContent();  // Re-fetch content after saving
+        editContent('parallax', key, newContent).then(() => {
+            fetchContent();
             setIsEditing(false);
         });
     };
@@ -257,7 +270,7 @@ export default function ParallaxOne() {
 
             <ParallaxBanner
                 layers={[{
-                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    image: getItemContent('image1'),
                     speed: -50
                 }]}
                 className="h-[100vh] relative w-full object-scale-down"
@@ -275,6 +288,9 @@ export default function ParallaxOne() {
                         html={getItemContent('parallax1Title')}
                         onClick={() => handleEditClick('parallax1Title')}
                     />
+                    {user && <img className=' cursor-pointer hover:scale-125 duration-300 mt-4 z-50  w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                        onClick={() => handleEditImageClick('image1')}
+                    />}
                 </div>
             </ParallaxBanner>
 
@@ -296,7 +312,7 @@ export default function ParallaxOne() {
 
             <ParallaxBanner
                 layers={[{
-                    image: 'https://plus.unsplash.com/premium_photo-1661901734877-88919d011b24?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    image: getItemContent('image2'),
                     speed: -50
                 }]}
                 className="h-[90vh] relative w-full object-scale-down"
@@ -318,6 +334,9 @@ export default function ParallaxOne() {
                         html={getItemContent('buttonText')}
                         onClick={() => handleEditClick('buttonText')}
                     />
+                    {user && <img className=' cursor-pointer hover:scale-125 duration-300 mt-4 z-50  w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                        onClick={() => handleEditImageClick('image2')}
+                    />}
 
                 </div>
             </ParallaxBanner>
@@ -328,6 +347,13 @@ export default function ParallaxOne() {
                     content={selectedItem.content}
                     onSave={handleSave}
                     onCancel={() => setIsEditing(false)}
+                />
+            )}
+            {isEditingImage && selectedItem && (
+                <ImageEditor
+                    item={selectedItem.key}
+                    onSave={handleSaveImage}
+                    onCancel={() => setIsEditingImage(false)}
                 />
             )}
         </div>
