@@ -1,20 +1,23 @@
 import React from 'react';
-import  useContentStore  from '../stores/contentStore';
+import useContentStore from '../stores/contentStore';
 
 const CustomizableImage = ({ className, src }) => {
     const { isLoading } = useContentStore();
 
     return (
         <div className={`relative ${className}`}>
-            {isLoading && (
+            {isLoading ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <svg className="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4zm8-4a8 8 0 018 8h-8V8z"></path>
                     </svg>
                 </div>
-            )}
-            <img className={`w-full h-full ${isLoading ? 'opacity-50' : ''}`} src={src} alt="" />
+            )
+                :
+                <img className={`w-full h-full ${isLoading ? 'opacity-50' : ''}`} src={src} alt="" />
+
+            }
         </div>
     );
 };
