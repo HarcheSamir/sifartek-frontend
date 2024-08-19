@@ -5,6 +5,7 @@ import ContentEditor from '../../components/ContentEditor';
 import useContentStore from '../../stores/contentStore';
 import ImageEditor from '../../components/ImageEditor';
 import useAdminStore from '../../stores/adminStore';
+import CustomizableImage from '../../components/CustomizableImage';
 import content from '../../constants/content'
 const contentItems = content.filter(item => item.section === 'rooms');
 
@@ -56,7 +57,7 @@ export default function Rooms() {
     const RoomComponent = ({ image, titleKey, descriptionKey }) => (
         <div className="w-full aspect-[1/2] sm:aspect-[2/3] md:aspect-square relative">
             <div className='w-full h-1/3 sm:h-[70%] relative'>
-                <img sizes="100vw" height={0} width={0} className="w-full h-full "
+                <CustomizableImage sizes="100vw" height={0} width={0} className="w-full h-full "
                     src={getItemContent(image)}
                     alt="" />
                 {user && <img className='absolute cursor-pointer hover:scale-125 duration-300  top-1/2 z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'

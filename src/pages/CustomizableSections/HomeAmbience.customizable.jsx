@@ -5,8 +5,8 @@ import ContentEditor from '../../components/ContentEditor';
 import ImageEditor from '../../components/ImageEditor';
 import useAdminStore from '../../stores/adminStore';
 import useContentStore from '../../stores/contentStore';
+import CustomizableImage from '../../components/CustomizableImage';
 import content from '../../constants/content';
-
 const contentItems = content.filter(item => item.section === 'ambience');
 
 export default function HomeAmbience() {
@@ -55,17 +55,15 @@ export default function HomeAmbience() {
     return (
         <>
             <div className="lg:h-screen w-full bg-primary relative md:mt-40 flex flex-col lg:flex-row">
-                <img className='absolute cursor-pointer hover:scale-125 duration-300  top-[40%] z-50 left-[25%] w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+               { user && <img className='absolute cursor-pointer hover:scale-125 duration-300 top-[40%] z-50 left-[25%] w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
                     onClick={() => handleEditImageClick('image')}
-                />
-                <img
-                    sizes="100vw"
-                    height={0}
-                    width={0}
-                    className="w-full lg:w-[60%] h-full object-cover"
-                    alt=""
+                />}
+                <CustomizableImage
+                    className="w-full shrink-0 lg:w-[60%] h-full object-cover"
                     src={getItemContent('image')}
-                />
+                >
+                    
+                </CustomizableImage>
                 <div className="grow py-20 flex flex-col justify-center pl-8 md:pl-20">
                     <CustomizableText
                         className="font-old text-xl md:text-5xl text-zinc-200"

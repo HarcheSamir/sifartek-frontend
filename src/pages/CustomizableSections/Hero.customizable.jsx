@@ -7,6 +7,7 @@ import ContentEditor from '../../components/ContentEditor';
 import ImageEditor from '../../components/ImageEditor';
 import content from '../../constants/content'
 import useAdminStore from '../../stores/adminStore';
+import CustomizableImage from '../../components/CustomizableImage';
 const contentItems = content.filter(item => item.section === 'hero');
 export default function Hero() {
     const { content, fetchContent, editContent } = useContentStore();
@@ -81,10 +82,10 @@ export default function Hero() {
 
     const items = [
         <div className='h-full w-full text-white relative' key='carousel1'>
-            <div className='absolute h-full w-full bg-black opacity-60' />
-            <div className='absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
+            <div className='absolute h-full w-full z-20 bg-black opacity-60' />
+            <div className='absolute top-1/3 z-20 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
                 <CustomizableText
-                    className='mb-4 md:text-sm font-thin text-center text-sm '
+                    className='mb-4 md:text-sm  font-thin text-center text-sm '
                     html={getItemContent('carousel1Subtitle')}
                     onClick={() => handleEditClick('carousel1Subtitle')}
                 />
@@ -102,19 +103,15 @@ export default function Hero() {
                     onClick={() => handleEditImageClick('image1')}
                 />}
             </div>
-            <img
-                height={0}
-                width={0}
-                sizes='100vw'
-                alt=''
+            <CustomizableImage
                 className='h-full w-full object-cover'
                 src={getItemContent('image1')}
             />
         </div>
         ,
         <div className='h-full w-full text-white relative' key='carousel2'>
-            <div className='absolute h-full w-full bg-black opacity-60' />
-            <div className='absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
+            <div className='absolute h-full z-20 w-full bg-black opacity-60' />
+            <div className='absolute top-1/3 z-20 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
                 <CustomizableText
                     className='mb-4 md:text-sm font-thin text-center text-sm '
                     html={getItemContent('carousel2Subtitle')}
@@ -125,16 +122,12 @@ export default function Hero() {
                     html={getItemContent('carousel2Title')}
                     onClick={() => handleEditClick('carousel2Title')}
                 />
-               {user && <img className=' cursor-pointer hover:scale-125 duration-300 mt-4  w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                {user && <img className=' cursor-pointer hover:scale-125 duration-300 mt-4  w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
                     onClick={() => handleEditImageClick('image2')}
                 />}
 
             </div>
-            <img
-                height={0}
-                width={0}
-                sizes='100vw'
-                alt=''
+            <CustomizableImage
                 className='h-full w-full object-cover'
                 src={getItemContent('image2')}
             />
@@ -159,7 +152,7 @@ export default function Hero() {
 
                 />
             )}
-              {isEditingImage && selectedItem && (
+            {isEditingImage && selectedItem && (
                 <ImageEditor
                     item={selectedItem.key}
                     onSave={handleSaveImage}

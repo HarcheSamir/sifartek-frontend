@@ -10,6 +10,7 @@ import ContentEditor from '../../components/ContentEditor';
 import useContentStore from '../../stores/contentStore';
 import ImageEditor from '../../components/ImageEditor';
 import useAdminStore from '../../stores/adminStore';
+import CustomizableImage from '../../components/CustomizableImage';
 import content from '../../constants/content'
 const contentItems = content.filter(item => item.section === 'parallax');
 export default function ParallaxOne() {
