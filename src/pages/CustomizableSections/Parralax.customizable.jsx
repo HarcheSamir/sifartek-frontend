@@ -17,7 +17,7 @@ export default function ParallaxOne() {
 
 
     const getItemContent = (key) => {
-        const entry = content.find((entry) => entry.item === key);
+        const entry = Array.isArray(content) ? content.find((entry) => entry.item === key) : null;
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
