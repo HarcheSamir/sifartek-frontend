@@ -18,9 +18,6 @@ export default function Hero() {
 
 
 
-    useEffect(() => {
-        fetchContent();
-    }, [fetchContent]);
 
     const getItemContent = (key) => {
         const entry = content.find((entry) => entry.item === key);

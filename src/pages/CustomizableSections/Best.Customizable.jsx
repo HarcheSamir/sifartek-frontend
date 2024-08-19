@@ -10,9 +10,6 @@ export default function Best() {
     const [isEditing, setIsEditing] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
-    useEffect(() => {
-        fetchContent();
-    }, [fetchContent]);
 
     const getItemContent = (key) => {
         const entry = content.find((entry) => entry.item === key);

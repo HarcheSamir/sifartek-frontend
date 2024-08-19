@@ -278,7 +278,7 @@ export default function ParallaxOne() {
                 </div>
             </ParallaxBanner>
 
-            <div className='w-full lg:h-[120vh] py-4 px-2 sm:px-8 min-h-screen flex flex-col items-center'>
+            <div className='w-full xl:h-[120vh] py-4 px-2 sm:px-8 min-h-screen flex flex-col items-center'>
                 <CustomizableText
                     className='mt-40 text-zinc-600 mb-4 text-sm sm:text-lg'
                     html={getItemContent('section2Subtitle')}

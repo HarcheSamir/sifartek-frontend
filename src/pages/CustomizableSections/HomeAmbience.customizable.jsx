@@ -10,9 +10,6 @@ export default function HomeAmbience() {
     const [selectedItem, setSelectedItem] = useState(null);
 
 
-    useEffect(() => {
-        fetchContent();
-    }, [fetchContent]);
 
 
     const getItemContent = (key) => {
