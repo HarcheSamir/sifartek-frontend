@@ -10,7 +10,7 @@ export default function Login() {
 
     return (
         <AppForm
-            classname={'flex flex-col max-w-[400px] mr-20  rounded-lg shadow-lg'}
+            classname={'flex flex-col max-w-[400px] sm:mr-20   rounded-lg shadow-lg'}
             validateOnChange={true}
             initialValues={{
                 email: "",

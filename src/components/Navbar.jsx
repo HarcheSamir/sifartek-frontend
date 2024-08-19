@@ -37,7 +37,7 @@ export default function Navbar() {
             <div onClick={() => setDrawer(!drawer)} className='bg-secondary p-2 md:hidden rounded text-white cursor-pointer'>
                 {drawer ? <IoMdClose className='h-4 w-4' /> : <IoMdMenu className='h-4 w-4' />}
             </div>
-            <div className={`sm:hidden absolute w-full bg-white left-0 flex flex-col items-center duration-300 overflow-hidden ${drawer ? 'top-full h-[55vh]' : 'top-full h-0'}`}>
+            <div className={`sm:hidden absolute w-full bg-white left-0 flex flex-col items-center duration-300 overflow-hidden ${drawer ? 'top-full h-[350px]' : 'top-full h-0'}`}>
                 <p className='text-xl mt-4 font-normal cursor-pointer' onClick={() => handleNavigation('/')}>Home</p>
                 <div className='w-[90%] h-[1px] rounded-full my-3 bg-zinc-200' />
                 <p className='text-xl font-normal cursor-pointer' onClick={() => handleNavigation('/rooms')}>Rooms</p>

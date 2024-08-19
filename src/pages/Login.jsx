@@ -8,15 +8,15 @@ export default function Login() {
 
   return (
     <div className='w-full h-screen bg-primary relative flex text-white'>
-      <div className="relative text-xl -translate-x-[20%] margin-40 h-full w-[50%] md:w-[70%] rounded-r-[50px] overflow-hidden -skew-x-12" >
-        <div className='w-[120%] relative  h-[100%] skew-x-12 ' >
+      <div className="relative hidden sm:block text-xl -translate-x-[20%] margin-40 h-full w-[50%] md:w-[70%] rounded-r-[50px] overflow-hidden -skew-x-12" >
+        <div className='w-[120%] relative   h-[100%] skew-x-12 ' >
           <LoginCarousel items={components} />
         </div>
 
       </div>
-      <div className='h-full w-[50%] md:w-[35%] relative  flex flex-col '>
-        <p className='max-w-[400px] text-center mt-[20%] text-4xl font-roboto mr-20  font-semibold'>Welcome Back</p>
-        <p className='max-w-[400px] text-center mt-4 text-sm font-roboto mr-20 mb-20 font-medium'>Please Login To Continue</p>
+      <div className='h-full w-full sm:w-[50%] md:w-[35%] relative items-center  flex flex-col '>
+        <p className='max-w-[400px] text-center sm:mt-[20%] text-4xl font-roboto sm:mr-20 mt-[40%]  font-semibold'>Welcome Back</p>
+        <p className='max-w-[400px] text-center mt-4 text-sm font-roboto sm:mr-20 mb-20 font-medium'>Please Login To Continue</p>
 
         <Loginn />
       </div>
