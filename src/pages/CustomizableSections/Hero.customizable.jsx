@@ -20,13 +20,13 @@ export default function Hero() {
 
 
     const getItemContent = (key) => {
-        const entry = content.find((entry) => entry.item === key);
-        return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
+        const entry = content?.find((entry) => entry.item === key);
+        return entry ? entry.content : contentItems?.find((item) => item.key === key)?.defaultValue || '';
     };
   
 
     const handleEditClick = (key) => {
-        const item = contentItems.find(item => item.key === key)
+        const item = contentItems?.find(item => item.key === key)
         setSelectedItem({
             key: item.key,
             content: getItemContent(item.key),
@@ -57,7 +57,7 @@ export default function Hero() {
                     html={getItemContent(`${item.key}Title`)}
                     onClick={() => handleEditClick(`${item.key}Title`)}
                 />
-                {contentItems.find(i => i.key === `${item.key}ButtonText`) && (
+                {contentItems?.find(i => i.key === `${item.key}ButtonText`) && (
                     <CustomizableText
                         className='whitespace-nowrap hover:scale-110 duration-300 text-lg mt-12 py-4 px-6 border-[2px]'
                         html={getItemContent(`${item.key}ButtonText`)}
