@@ -4,7 +4,8 @@ import BookingButton from '../../components/BookingButton';
 import useContentStore from '../../stores/contentStore';
 import CustomizableText from '../../components/CustomizableText';
 import ContentEditor from '../../components/ContentEditor'; // Import the new component
-
+import content from '../../constants/content'
+const contentItems = content.filter(item => item.section === 'hero');
 export default function Hero() {
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);
@@ -15,13 +16,7 @@ export default function Hero() {
         { key: 'carousel2', src: 'https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
     ];
 
-    const contentItems = [
-        { key: 'carousel1Title', label: 'Carousel 1 Title', type: 'text', defaultValue: 'Luxury Times.<br />Bay & Beyond.' },
-        { key: 'carousel1Subtitle', label: 'Carousel 1 Subtitle', type: 'text', defaultValue: 'The finest hotel near Panama Beach' },
-        { key: 'carousel1ButtonText', label: 'Carousel 1 Button Text', type: 'button', defaultValue: 'VIEW EXCLUSIVE ROOMS' },
-        { key: 'carousel2Title', label: 'Carousel 2 Title', type: 'text', defaultValue: 'Comfort & More.<br />Bay & Beyond.' },
-        { key: 'carousel2Subtitle', label: 'Carousel 2 Subtitle', type: 'text', defaultValue: 'The finest hotel near Panama Beach' }
-    ];
+
 
     useEffect(() => {
         fetchContent();
@@ -31,8 +26,10 @@ export default function Hero() {
         const entry = content.find((entry) => entry.item === key);
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
+  
 
-    const handleEditClick = (item) => {
+    const handleEditClick = (key) => {
+        const item = contentItems.find(item => item.key === key)
         setSelectedItem({
             key: item.key,
             content: getItemContent(item.key),
@@ -55,19 +52,19 @@ export default function Hero() {
             <div className='absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
                 <CustomizableText
                     className='mb-4 md:text-xl font-thin text-center '
-                    html={getItemContent(`${item.key}Subtitle`) || contentItems.find(i => i.key === `${item.key}Subtitle`)?.defaultValue}
-                    onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}Subtitle`))}
+                    html={getItemContent(`${item.key}Subtitle`) }
+                    onClick={() => handleEditClick(`${item.key}Subtitle`)}
                 />
                 <CustomizableText
                     className='font-old text-5xl md:text-8xl text-center'
-                    html={getItemContent(`${item.key}Title`) || contentItems.find(i => i.key === `${item.key}Title`)?.defaultValue}
-                    onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}Title`))}
+                    html={getItemContent(`${item.key}Title`)}
+                    onClick={() => handleEditClick(`${item.key}Title`)}
                 />
                 {contentItems.find(i => i.key === `${item.key}ButtonText`) && (
                     <CustomizableText
                         className='whitespace-nowrap hover:scale-110 duration-300 text-lg mt-12 py-4 px-6 border-[2px]'
-                        html={getItemContent(`${item.key}ButtonText`) || contentItems.find(i => i.key === `${item.key}ButtonText`)?.defaultValue}
-                        onClick={() => handleEditClick(contentItems.find(i => i.key === `${item.key}ButtonText`))}
+                        html={getItemContent(`${item.key}ButtonText`)}
+                        onClick={() => handleEditClick(`${item.key}ButtonText`)}
                     />
                 )}
             </div>

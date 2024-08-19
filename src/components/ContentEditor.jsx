@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import useContentStore from '../stores/contentStore';
 import useAdminStore from '../stores/adminStore';
-const ContentEditor = ({ item, content, label, onSave, onCancel }) => {
+const ContentEditor = ({ item, content, onSave, onCancel }) => {
     const {isLoading} = useContentStore()
     const{user} = useAdminStore()
     const [editorContent, setEditorContent] = useState(content);
@@ -16,7 +16,7 @@ const ContentEditor = ({ item, content, label, onSave, onCancel }) => {
     if(user) return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
             <div className="bg-white p-6 rounded-lg w-full max-w-lg">
-                <h2 className="text-xl font-bold mb-4">Edit {label}</h2>
+                <h2 className="text-xl font-bold mb-4">Edit {item}</h2>
 
                 <ReactQuill
                     value={editorContent}

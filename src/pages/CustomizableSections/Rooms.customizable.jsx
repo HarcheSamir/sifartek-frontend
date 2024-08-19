@@ -3,26 +3,15 @@ import RoomsCarousel from '../../components/RoomsCarousel';
 import CustomizableText from '../../components/CustomizableText';
 import ContentEditor from '../../components/ContentEditor';
 import useContentStore from '../../stores/contentStore';
+import content from '../../constants/content'
+const contentItems = content.filter(item => item.section === 'rooms');
 
 export default function Rooms() {
     const { content, fetchContent, editContent } = useContentStore();
     const [isEditing, setIsEditing] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
-    const contentItems = [
-        { key: 'roomsTitle', label: 'Rooms Title', type: 'text', defaultValue: 'Eco-Inspired Lodging' },
-        { key: 'roomsSubtitle', label: 'Rooms Subtitle', type: 'text', defaultValue: 'ACCOMMODATION & COMFORT' },
-        { key: 'penthouseSuiteTitle', label: 'Penthouse Suite Title', type: 'text', defaultValue: 'Penthouse Suite' },
-        { key: 'penthouseSuiteDescription', label: 'Penthouse Suite Description', type: 'text', defaultValue: 'Luxurious suite with panoramic views.' },
-        { key: 'janitorSuiteTitle', label: 'Janitor Suite Title', type: 'text', defaultValue: 'Janitor Suite' },
-        { key: 'janitorSuiteDescription', label: 'Janitor Suite Description', type: 'text', defaultValue: 'Comfortable suite with a quaint charm.' },
-        { key: 'familyDoubleTitle', label: 'Family Double Title', type: 'text', defaultValue: 'Family Double Room' },
-        { key: 'familyDoubleDescription', label: 'Family Double Description', type: 'text', defaultValue: 'Spacious room ideal for families.' },
-        { key: 'executiveRoomTitle', label: 'Executive Room Title', type: 'text', defaultValue: 'Executive Room' },
-        { key: 'executiveRoomDescription', label: 'Executive Room Description', type: 'text', defaultValue: 'Elegantly designed room for business travelers.' },
-        { key: 'emptyTitleRoomTitle', label: 'Empty Title Room Title', type: 'text', defaultValue: 'Empty Room' },
-        { key: 'emptyTitleRoomDescription', label: 'Empty Title Room Description', type: 'text', defaultValue: 'A room that’s ready for your next stay.' },
-    ];
+
 
     useEffect(() => {
         fetchContent();
@@ -33,7 +22,10 @@ export default function Rooms() {
         return entry ? entry.content : contentItems.find((item) => item.key === key)?.defaultValue || '';
     };
 
-    const handleEditClick = (item) => {
+   
+
+    const handleEditClick = (key) => {
+        const item = contentItems.find(item => item.key === key);
         setSelectedItem({
             key: item.key,
             content: getItemContent(item.key),
@@ -56,13 +48,13 @@ export default function Rooms() {
             <div className="flex flex-col w-full h-2/3 sm:h-[30%] p-4">
                 <CustomizableText
                     className="font-old text-xl lg:text-3xl text-zinc-800 "
-                    html={getItemContent(titleKey) || 'Default Room Title'}
-                    onClick={() => handleEditClick({ key: titleKey, label: 'Room Title', type: 'text' })}
+                    html={getItemContent(titleKey)}
+                    onClick={()=>handleEditClick(titleKey)}
                 />
                 <CustomizableText
                     className="text-zinc-600 font-thin text-sm lg:text-lg "
-                    html={getItemContent(descriptionKey) || 'Default Room Description'}
-                    onClick={() => handleEditClick({ key: descriptionKey, label: 'Room Description', type: 'text' })}
+                    html={getItemContent(descriptionKey) }
+                    onClick={()=>handleEditClick(descriptionKey)}
                 />
             </div>
         </div>
@@ -101,13 +93,13 @@ export default function Rooms() {
             <div className="w-full px-2 sm:px-8 min-h-screen flex flex-col items-center">
                 <CustomizableText
                     className="mt-40 text-zinc-600 mb-4 text-sm sm:text-lg "
-                    html={getItemContent('roomsSubtitle') || contentItems.find(i => i.key === 'roomsSubtitle')?.defaultValue}
-                    onClick={() => handleEditClick(contentItems.find(i => i.key === 'roomsSubtitle'))}
+                    html={getItemContent('roomsSubtitle')}
+                    onClick={()=>handleEditClick('roomsSubtitle')}
                 />
                 <CustomizableText
                     className="font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20 "
-                    html={getItemContent('roomsTitle') || contentItems.find(i => i.key === 'roomsTitle')?.defaultValue}
-                    onClick={() => handleEditClick(contentItems.find(i => i.key === 'roomsTitle'))}
+                    html={getItemContent('roomsTitle')}
+                    onClick={()=>handleEditClick('roomsTitle')}
                 />
                 <RoomsCarousel
                     items={items.map(item => (
@@ -125,7 +117,6 @@ export default function Rooms() {
                 <ContentEditor
                     item={selectedItem.key}
                     content={selectedItem.content}
-                    label={selectedItem.label}
                     onSave={handleSave}
                     onCancel={() => setIsEditing(false)}
                 />
