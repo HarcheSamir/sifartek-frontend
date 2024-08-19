@@ -4,7 +4,7 @@ import Hero from './CustomizableSections/Hero.customizable'
 import Rooms from './CustomizableSections/Rooms.customizable'
 import HomeAmbience from './CustomizableSections/HomeAmbience.customizable'
 import ParallaxOne from './CustomizableSections/Parralax.customizable'
-import Best from './CustomizableSections/Best.customizable'
+import Best from './CustomizableSections/Best.Customizable'
 import Instagram from "./CustomizableSections/Instagram";
 import Footer from "./CustomizableSections/Footer";
 
