@@ -21,8 +21,8 @@ export default function Login() {
                 login(data);
             }}
         >
-            <div className="w-full pl-6 p-3 bg-[#333333] flex items-center rounded-md mb-4">
-                <GoPerson className="mr-2 h-8 w-8 text-gray-400" />
+            <div className="w-full pl-4 p-3 bg-[#333333] flex items-center rounded-md mb-4">
+                <GoPerson className="mr-2 h-6 w-6 text-gray-400" />
                 <Field
                     name="email"
                     as={CustomField}
@@ -32,8 +32,8 @@ export default function Login() {
                 />
             </div>
 
-            <div className="w-full pl-6 p-3 bg-[#333333] flex items-center rounded-md mb-4">
-                <GoKey className="mr-3 h-7 w-7 text-gray-400" />
+            <div className="w-full pl-4 p-3 bg-[#333333] flex items-center rounded-md mb-8">
+                <GoKey className="mr-3 h-5 w-5 text-gray-400" />
                 <Field
                     name="password"
                     as={CustomField}
@@ -57,7 +57,7 @@ export default function Login() {
 
             <button
                 type="submit"
-                className={`flex items-center justify-center mt-6 px-6 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'}`}
+                className={`flex items-center text-sm justify-center mt-6 px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'}`}
                 disabled={isLoading}
             >
                 {isLoading && (

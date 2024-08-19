@@ -100,9 +100,7 @@
 
 
 
-.stats-scroll {
-  
-}
+.stats-scroll {}
 
 
 
@@ -134,6 +132,7 @@
 }
 
 
-
-
-
+.txt {
+  -webkit-line-clamp: none !important;
+  overflow: visible !important;
+}

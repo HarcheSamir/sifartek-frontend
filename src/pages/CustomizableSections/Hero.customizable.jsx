@@ -48,18 +48,18 @@ export default function Hero() {
             <div className='absolute h-full w-full bg-black opacity-60' />
             <div className='absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center'>
                 <CustomizableText
-                    className='mb-4 md:text-xl font-thin text-center '
+                    className='mb-4 md:text-sm font-thin text-center text-sm '
                     html={getItemContent(`${item.key}Subtitle`) }
                     onClick={() => handleEditClick(`${item.key}Subtitle`)}
                 />
                 <CustomizableText
-                    className='font-old text-5xl md:text-8xl text-center'
+                    className='font-old text-3xl md:text-6xl text-center'
                     html={getItemContent(`${item.key}Title`)}
                     onClick={() => handleEditClick(`${item.key}Title`)}
                 />
                 {contentItems?.find(i => i.key === `${item.key}ButtonText`) && (
                     <CustomizableText
-                        className='whitespace-nowrap hover:scale-110 duration-300 text-lg mt-12 py-4 px-6 border-[2px]'
+                        className='whitespace-nowrap hover:scale-110 duration-300 text-sm mt-12 py-4 px-6 border-[2px]'
                         html={getItemContent(`${item.key}ButtonText`)}
                         onClick={() => handleEditClick(`${item.key}ButtonText`)}
                     />

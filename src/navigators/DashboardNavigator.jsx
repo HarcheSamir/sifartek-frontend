@@ -15,19 +15,19 @@ export default function DashboardNavigator() {
     <div className='w-screen  bg-[#F9FAFB] h-screen flex flex-row relative overflow-hidden '>
       <ScrollToTop />
       {/*side bar*/}
-      <div className={`min-h-full bg-white z-50 shrink-0 border-r-3 border-zinc-100  w-0 lg:w-[20rem] duration-500 ${sideBar ? 'fixed top-0 left-0 h-full w-[20rem]' : 'w-0'}`}>
+      <div className={`min-h-full bg-white z-50 shrink-0 border-r-3 border-zinc-100  w-0 lg:w-[15rem] duration-500 ${sideBar ? 'fixed top-0 left-0 h-full w-[15rem]' : 'w-0'}`}>
         <SideBar />
 
       </div>
 
 
-      <div className='lg:w-[calc(100vw-20rem)] w-full h-full flex flex-col'>
+      <div className='lg:w-[calc(100vw-15rem)] lg:relative h-full fixed top-0 left-0 w-full flex flex-col'>
         {/*top bar*/}
-        <div className='w-full h-24 bg-white py-4 '>
+        <div className='w-full h-[50px] bg-white py-4 '>
           <TopBar />
         </div>
         {/*pages*/}
-        <div className=' h-full '>
+        <div className={`h-full`}>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/test" element={<Test />} />

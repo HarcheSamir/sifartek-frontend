@@ -9,14 +9,14 @@ const StatsCard = ({ title, value, trendPercentage, trendText, trendDirection, p
   const TrendIcon = isTrendingUp ? IoIosTrendingUp : IoIosTrendingDown;
 
   return (
-    <div className=" bg-white shadow pl-6 py-8 pr-4 relative items-center  w-[min(350px,95%)] rounded-lg flex flex-row justify-between">
+    <div className=" bg-white shadow pl-6 py-6 pr-4 relative items-center  w-[min(350px,95%)] rounded-lg flex flex-row justify-between">
       <div>
-        <p className="text-zinc-400 font-semibold text-lg">{title}</p>
-        <p className="text-zinc-800 font-rubik font-semibold text-2xl">{value}</p>
+        <p className="text-zinc-400 font-semibold text-sm">{title}</p>
+        <p className="text-zinc-800 font-rubik font-semibold text-lg">{value}</p>
         <div className="flex items-end mt-3">
-          <TrendIcon className={`${trendColor} text-xl`} />
-          <p className={`${percentageColor} text-xl font-bold`}>{trendPercentage}</p>
-          <p className="text-zinc-500 font-semibold pl-3 whitespace-nowrap">{trendText}</p>
+          <TrendIcon className={`${trendColor} text-sm`} />
+          <p className={`${percentageColor} text-sm font-bold`}>{trendPercentage}</p>
+          <p className="text-zinc-500 text-xs font-semibold pl-3 whitespace-nowrap">{trendText}</p>
         </div>
       </div>
       <div className="w-[100px]">

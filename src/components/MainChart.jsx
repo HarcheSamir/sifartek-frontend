@@ -23,7 +23,7 @@ const MainChart = () => {
 
     return {
       chart: {
-        height: 420,
+        height: 380,
         type: 'area',
         fontFamily: 'Inter, sans-serif',
         foreColor: mainChartColors.labelColor,

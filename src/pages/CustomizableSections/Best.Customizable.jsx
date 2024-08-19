@@ -47,9 +47,9 @@ export default function Best() {
                     html={getItemContent('bestValues')}
                     onClick={()=>handleEditClick('bestValues')}
                 />
-                <div className='grid grid-cols-1 md:grid-cols-3 w-[90%] gap-8'>
+                <div className='grid  grid-cols-1 md:grid-cols-3 w-[90%] gap-8'>
                     {/* First Card */}
-                    <div className='w-full aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
+                    <div className='w-full scale-75 aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
                         <div className='col-span-8 flex border-zinc-300 items-center justify-center font-bold text-xl row-span-1 border-b'>
                             <CustomizableText
                                 className='text-xl font-bold'
@@ -122,7 +122,7 @@ export default function Best() {
                     </div>
 
                     {/* Second Card */}
-                    <div className='w-full aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
+                    <div className='w-full scale-90 aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
                         <div className='col-span-8 flex border-zinc-300 items-center justify-center font-bold text-xl row-span-1 border-b'>
                             <CustomizableText
                                 className='text-xl font-bold'
@@ -195,7 +195,7 @@ export default function Best() {
                     </div>
 
                     {/* Third Card */}
-                    <div className='w-full aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
+                    <div className='w-full scale-75 aspect-[4/5] rounded border-zinc-300 border-[2px] grid grid-cols-8 grid-rows-8'>
                         <div className='col-span-8 flex border-zinc-300 items-center justify-center font-bold text-xl row-span-1 border-b'>
                             <CustomizableText
                                 className='text-xl font-bold'

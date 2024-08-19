@@ -38,14 +38,14 @@ const SalesByCategoryPieChart = () => {
         <div className=" w-full h-full flex items-center justify-center">
             <div className="flex w-[80%] h-[50%] justify-between items-center">
                 <div>
-                    <h4 className="text-gray-500 text-xl whitespace-nowrap font-semibold">New products</h4>
-                    <div className="text-3xl font-semibold">2,340</div>
-                    <div className="text-sm text-green-500 flex items-center mt-2">
-                        <span>▲</span>
-                        <span className="ml-1">12.5% Since last month</span>
+                    <h4 className="text-gray-500 text-lg whitespace-nowrap font-semibold">New products</h4>
+                    <div className="text-2xl font-semibold">2,340</div>
+                    <div className="text-xs text-green-500 flex items-center mt-2">
+                        <span>▲ <span className="ml-1">12.5% Since last month</span></span>
+
                     </div>
                 </div>
-                <div  id="sales-category-pie-chart"></div>
+                <div id="sales-category-pie-chart"></div>
             </div>
         </div>
     );

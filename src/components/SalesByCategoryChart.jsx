@@ -41,11 +41,11 @@ const SalesByCategoryChart = ({ title, number, percentageChange }) => {
     <div className=" w-full h-full flex items-center justify-center">
       <div className="flex w-[80%] h-[50%] justify-between items-center">
         <div>
-          <p className="text-gray-500 text-xl font-semibold">{title}</p>
-          <div className="text-3xl font-semibold">{number}</div>
-          <div className={`text-sm mt-2 ${changeColor} flex items-center`}>
-            <span>{arrow}</span>
-            <span className="ml-1">{percentageChange}% Since last month</span>
+          <p className="text-gray-500 text-lg font-semibold">{title}</p>
+          <div className="text-2xl font-semibold">{number}</div>
+          <div className={`text-xs mt-2 ${changeColor} flex items-center`}>
+            <span>{arrow}<span className="ml-1">{percentageChange}% Since last month</span></span>
+            
           </div>
         </div>
         <div id="sales-category-chart" style={{ height: '100px', width: '200px' }}></div>

@@ -3,7 +3,7 @@ import useAdminStore from '../stores/adminStore';
 
 const CustomizableText = ({ className, html, onClick }) => {
     const { user } = useAdminStore();
-    const combinedClassName = `${className} ${user ? 'cursor-pointer' : ''}`;
+    const combinedClassName = `${className} ${user ? 'cursor-pointer' : ''} txt`;
 
     return (
         <p

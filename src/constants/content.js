@@ -20,7 +20,7 @@ const content = [
     { section: 'rooms', key: 'emptyTitleRoomDescription', defaultValue: 'A room that’s ready for your next stay.' },
     //HomeAmbience.customizable.jsx
     { section: 'ambience', key: 'title', defaultValue: 'Get Home-like Ambience' },
-    { section: 'ambience', key: 'description', defaultValue: 'A self-described luxury temporary residence...' },
+    { section: 'ambience', key: 'description', defaultValue: 'A self-described luxury temporary residence, the AKA Beverly Hills offers guests the space and comfort of an apartment, with the service and amenities you’d expect at a five-star hotel.' },
     { section: 'ambience', key: 'buttonText', defaultValue: 'VIEW EXCLUSIVE ROOM' },
     //Parralax.customizable.jsx
     { section: 'parallax', key: 'section1Subtitle', defaultValue: 'ACCOMMODATION & COMFORT' },

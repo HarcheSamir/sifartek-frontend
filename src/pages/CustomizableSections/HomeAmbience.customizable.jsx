@@ -19,7 +19,7 @@ export default function HomeAmbience() {
 
 
     const handleEditClick = (key) => {
-      const item =   contentItems.find(item => item.key === key)
+        const item = contentItems.find(item => item.key === key)
         setSelectedItem({
             key: item.key,
             content: getItemContent(item.key),
@@ -49,17 +49,17 @@ export default function HomeAmbience() {
                 />
                 <div className="w-full py-20 flex flex-col justify-center pl-8 md:pl-20">
                     <CustomizableText
-                        className="font-old text-3xl md:text-6xl text-zinc-200 "
+                        className="font-old text-xl md:text-5xl text-zinc-200 "
                         html={getItemContent('title')}
                         onClick={() => handleEditClick('title')}
                     />
                     <CustomizableText
-                        className="text-sm md:text-lg text-zinc-300 ml-2 mt-4 indent-2"
+                        className="text-xs  md:text-sm text-zinc-300 ml-2 mt-4 w-[90%] indent-2"
                         html={getItemContent('description')}
                         onClick={() => handleEditClick('description')}
                     />
                     <CustomizableText
-                        className="bg-secondary w-min px-8  hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
+                        className="bg-secondary text-xs w-min px-8  hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8"
                         html={getItemContent('buttonText')}
                         onClick={() => handleEditClick('buttonText')}
                     />

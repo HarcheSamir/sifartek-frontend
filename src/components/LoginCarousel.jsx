@@ -25,14 +25,14 @@ const LoginCarousel = ({ items = [], texts = [] }) => {
     return (
         <div className="relative w-full h-full overflow-hidden flex justify-center items-center">
             <div className='absolute bottom-8 right-[30%] lg:right-[28%] z-20 flex gap-5'>
-                <FaArrowLeft className="bg-opacity-50 text-white hover:bg-opacity-70" onClick={prevSlide} />
-                <FaArrowRight className="bg-opacity-50 text-white hover:bg-opacity-70" onClick={nextSlide} />
+                <FaArrowLeft className="bg-opacity-50 text-white hover:bg-opacity-70 text-sm" onClick={prevSlide} />
+                <FaArrowRight className="bg-opacity-50 text-white hover:bg-opacity-70 text-sm" onClick={nextSlide} />
             </div>
             <img
                 height={0}
                 width={0}
                 sizes='100vw'
-                className='h-auto w-32 z-50 absolute top-5 left-[20%] cursor-pointer duration-300 hover:scale-110' 
+                className='h-auto w-32 z-50 absolute top-5 left-[20%] cursor-pointer duration-300 hover:scale-110'
                 src={'/assets/logo.svg'}
                 alt=''
                 onClick={() => navigate('/')} // Navigate to home on click
@@ -55,7 +55,7 @@ const LoginCarousel = ({ items = [], texts = [] }) => {
                 {items.map((_, index) => (
                     <div
                         key={index}
-                        className={`h-[5px] w-[30px] mx-1 rounded-full cursor-pointer ${currentIndex === index ? 'bg-white' : 'bg-gray-400'}`}
+                        className={`h-[3px] w-[20px] mx-1 rounded-full cursor-pointer ${currentIndex === index ? 'bg-white' : 'bg-gray-400'}`}
                         onClick={() => goToSlide(index)}
                     ></div>
                 ))}

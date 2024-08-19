@@ -40,7 +40,7 @@ const StatsCarousel = ({ items }) => {
           className="absolute top-0 left-0 h-full flex items-center justify-center bg-gradient-to-r from-zinc-100 rounded-full to-transparent cursor-pointer z-20"
           onClick={() => scroll('left')}
         >
-          <FaChevronLeft className="text-zinc-600 text-2xl" />
+          <FaChevronLeft className="text-zinc-600 text-lg" />
         </div>
       )}
       {showRightArrow && (
@@ -48,7 +48,7 @@ const StatsCarousel = ({ items }) => {
           className="absolute top-0 right-0 h-full flex items-center justify-center bg-gradient-to-l from-zinc-100 rounded-full to-transparent cursor-pointer z-20"
           onClick={() => scroll('right')}
         >
-          <FaChevronRight className="text-zinc-600 text-2xl" />
+          <FaChevronRight className="text-zinc-600 text-lg" />
         </div>
       )}
       <div

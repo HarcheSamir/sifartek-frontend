@@ -18,7 +18,7 @@ export default function BookingButton() {
 
     return (
 
-        <div className="  bg-gray-100 bg-white  max-w-[80%]  shadow-lg  absolute left-1/2 -translate-x-1/2  top-[80%]">
+        <div className="  bg-gray-100  max-w-[80%]  shadow-lg  absolute left-1/2 -translate-x-1/2  top-[80%]">
             <div className='h-full   relative flex    items-center justify-center'>
                 <div className="flex relative w-[25%] flex-col items-center">
                     <label className="sm:text-lg text-xs font-thin mb-2">CHECK IN</label>
@@ -26,7 +26,7 @@ export default function BookingButton() {
                         selected={checkInDate}
                         onChange={(date) => setCheckInDate(date)}
                         dateFormat="dd MMM"
-                        className="text-center  focus:outline-none bg-transparent font-old sm:text-3xl "
+                        className="text-center  focus:outline-none bg-transparent font-old sm:text-xl "
                     />
                 </div>
                 <div className="flex relative w-[25%]  flex-col items-center">
@@ -35,11 +35,11 @@ export default function BookingButton() {
                         selected={checkOutDate}
                         onChange={(date) => setCheckOutDate(date)}
                         dateFormat="dd MMM"
-                        className="text-center   focus:outline-none bg-transparent font-old sm:text-3xl"
+                        className="text-center   focus:outline-none bg-transparent font-old sm:text-xl"
                     />
                 </div>
                 <div className="flex w-[25%]  flex-col items-center ">
-                    <label className="sm:text-lg text-xs font-semibold mb-2">GUESTS</label>
+                    <label className="sm:text-lg text-xs font-thin mb-2 ">GUESTS</label>
                     <div className="flex items-center ">
                         <span className="text-xl mr-2">{guests}</span>
                         <div className='flex flex-col'>

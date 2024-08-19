@@ -45,12 +45,12 @@ export default function Rooms() {
             <img sizes="100vw" height={0} width={0} className="w-full h-1/3 sm:h-[70%]" src={image} alt="" />
             <div className="flex flex-col w-full h-2/3 sm:h-[30%] p-4">
                 <CustomizableText
-                    className="font-old text-xl lg:text-3xl text-zinc-800 "
+                    className="font-old text-lg lg:text-2xl text-zinc-800 "
                     html={getItemContent(titleKey)}
                     onClick={()=>handleEditClick(titleKey)}
                 />
                 <CustomizableText
-                    className="text-zinc-600 font-thin text-sm lg:text-lg "
+                    className="text-zinc-600 font-thin text-xs lg:text-sm "
                     html={getItemContent(descriptionKey) }
                     onClick={()=>handleEditClick(descriptionKey)}
                 />
@@ -90,12 +90,12 @@ export default function Rooms() {
         <>
             <div className="w-full px-2 sm:px-8 min-h-screen flex flex-col items-center">
                 <CustomizableText
-                    className="mt-40 text-zinc-600 mb-4 text-sm sm:text-lg "
+                    className="mt-40 text-zinc-600 mb-4 text-xs sm:text-sm "
                     html={getItemContent('roomsSubtitle')}
                     onClick={()=>handleEditClick('roomsSubtitle')}
                 />
                 <CustomizableText
-                    className="font-old text-center text-3xl sm:text-5xl text-zinc-800 mb-20 "
+                    className="font-old text-center text-xl sm:text-4xl text-zinc-800 mb-20 "
                     html={getItemContent('roomsTitle')}
                     onClick={()=>handleEditClick('roomsTitle')}
                 />

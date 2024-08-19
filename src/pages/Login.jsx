@@ -15,7 +15,7 @@ export default function Login() {
 
       </div>
       <div className='h-full w-[50%] md:w-[35%] relative  flex flex-col '>
-        <p className='max-w-[400px] text-center mt-[20%] text-6xl font-roboto mr-20  font-semibold'>Welcome Back</p>
+        <p className='max-w-[400px] text-center mt-[20%] text-4xl font-roboto mr-20  font-semibold'>Welcome Back</p>
         <p className='max-w-[400px] text-center mt-4 text-sm font-roboto mr-20 mb-20 font-medium'>Please Login To Continue</p>
 
         <Loginn />
@@ -30,7 +30,7 @@ const CarouselComponent = ({ item }) => {
   return (
     <div className='w-full h-full relative'>
       <div className='absolute top-0 left-0 h-full w-full bg-black opacity-45' />
-      <p className='absolute bottom-[180px]  text-white left-[18%] font-roboto text-2xl  lg:text-4xl  indent-20 w-[60%]'>
+      <p className='absolute bottom-[100px]  text-white left-[18%] font-roboto text-2xl    indent-20 w-[60%]'>
         "{item.text}"</p>
       <img height={0} width={0} sizes='100vw' className='w-full  h-full  ' src={item.image} alt='' />
     </div>)

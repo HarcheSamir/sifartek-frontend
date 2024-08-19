@@ -8,7 +8,7 @@ export default function AddTour({ ...props }) {
         <input
         {...props}
         {...field}
-        className="bg-transparent w-full outline-none ring-0"
+        className="bg-transparent w-full outline-none ring-0 text-sm"
         placeholder={props.label}
         />
         

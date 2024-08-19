@@ -10,7 +10,7 @@ export default function Dashboard() {
     <div className='h-full  flex flex-col   relative px-4 overflow-y-auto  '>
       <div className='h-full w-full'>
         <div className=' w-full '> <StatsCarousel items={items} /></div>
-        <div className='grid grid-cols-6 sm:h-[50%vh] sm:grid-rows-2  gap-2 w-full'>
+        <div className='grid grid-cols-6 sm:h-[40%vh] sm:grid-rows-2  gap-2 w-full'>
           <div className='w-full rounded-xl row-span-2 overflow-hidden shadow bg-white col-span-6  sm:col-span-4'>
             <MainChart />
           </div>
@@ -30,9 +30,6 @@ export default function Dashboard() {
         <div className='h-40'></div>
       </div>
 
-
-      {/* <SalesByCategoryChart />
-      <TrafficChannelsChart /> */}
     </div>
 
   )
