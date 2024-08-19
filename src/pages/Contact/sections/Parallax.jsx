@@ -17,9 +17,9 @@ export default function Parallax() {
       >
         <div className='h-full bg-black opacity-50' />
         <div className='absolute top-0 left-0 text-white h-full w-full flex flex-col justify-center items-center'>
-          <p className='text-2xl mb-4 text-center'>Enjoy with your partner.</p>
-          <p className='text-5xl md:text-7xl font-old font-medium text-center'>Honeymoon Package<br />50% Off</p>
-          <div className='bg-secondary w-min px-8 cursor-pointer hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8'>VIEW EXCLUSIVE ROOM</div>
+          <p className='text-xl mb-4 text-center'>Enjoy with your partner.</p>
+          <p className='text-3xl md:text-5xl font-old font-medium text-center'>Honeymoon Package<br />50% Off</p>
+          <div className='bg-secondary w-min px-8 cursor-pointer hover:bg-secondaryHovered py-4 whitespace-nowrap rounded mt-8 text-sm'>VIEW EXCLUSIVE ROOM</div>
 
         </div>
       </ParallaxBanner>
