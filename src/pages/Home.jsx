@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar";
 // import Hero from "./CustomizableSections/Hero";
+import Navbar from '../layout/Navbar'
 import Hero from './CustomizableSections/Hero.customizable'
 import Rooms from './CustomizableSections/Rooms.customizable'
 import HomeAmbience from './CustomizableSections/HomeAmbience.customizable'

@@ -13,7 +13,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className='fixed top-0 z-40 py-3 items-center bg-primary w-full justify-between flex px-4 lg:px-20 text-[#666666]'>
+        <div className='fixed top-0 z-40 py-3 items-center bg-primary w-screen justify-between flex px-4 lg:px-20 text-[#666666]'>
             <img 
                 height={0} 
                 width={0} 

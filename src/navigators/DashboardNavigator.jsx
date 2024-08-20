@@ -3,12 +3,13 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Test from '../pages/Test';
 import NotFound from '../pages/NotFound';
 import Dashboard from '../pages/Dashboard';
-import SideBar from '../components/SideBar';
-import TopBar from '../components/TopBar';
+import SideBar from '../layout/SideBar';
+import TopBar from '../layout/TopBar';
 import Inbox from '../pages/Inbox';
 import Custom from '../pages/Custom'
 import useLayoutStore from '../stores/layoutStore';
 import ScrollToTop from '../components/ScrollToTop';
+import AdminRooms from '../pages/AdminRooms';
 export default function DashboardNavigator() {
   const { sideBar } = useLayoutStore()
   return (
@@ -33,6 +34,7 @@ export default function DashboardNavigator() {
             <Route path="/test" element={<Test />} />
             <Route path="/inbox" element={<Inbox />} />
             <Route path="/custom" element={<Custom />} />
+            <Route path="/adminRooms" element={<AdminRooms/>} />
             <Route path="/login" element={<Navigate to="/dashboard" />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="*" element={<NotFound />} />

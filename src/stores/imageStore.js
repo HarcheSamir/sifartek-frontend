@@ -1,50 +1,57 @@
 import { create } from 'zustand';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const useImageStore = create((set) => ({
   isLoading: false,
   
-  uploadImage: async (files) => {
+  uploadImages: async (files, multiple = false) => {
     set({ isLoading: true });
 
     if (!files || files.length === 0) {
       toast.error('No files selected');
       set({ isLoading: false });
-      return null; // Return null if no files are selected
+      return multiple ? [] : null; // Return empty array or null based on multiple flag
     }
 
+    const imageUrls = [];
+
     try {
-      const formData = new FormData();
-      formData.append('file', files[0]);
-      formData.append('upload_preset', 'test2test'); // Ensure to replace with your correct preset
+      // If multiple is false, just upload the first file
+      const filesToUpload = multiple ? files : [files[0]];
 
-      const response = await fetch('https://api.cloudinary.com/v1_1/dw2d5lgfk/image/upload', {
-        method: 'POST',
-        body: formData,
-      });
+      for (const file of filesToUpload) {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', 'test2test'); // Replace with your correct preset
 
-      if (!response.ok) {
-        throw new Error('Failed to upload image');
+        const response = await fetch('https://api.cloudinary.com/v1_1/dw2d5lgfk/image/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to upload image');
+        }
+
+        const data = await response.json();
+
+        if (data.secure_url) {
+          console.log('Image uploaded: ', data.secure_url);
+          imageUrls.push(data.secure_url); // Collect each image URL
+        } else {
+          throw new Error('Failed to retrieve image URL');
+        }
       }
 
-      const data = await response.json();
-
-      if (data.secure_url) {
-        console.log('Image uploaded: ', data.secure_url);
-        return data.secure_url; // Return the image URL on success
-      } else {
-        throw new Error('Failed to retrieve image URL');
-      }
+      return multiple ? imageUrls : imageUrls[0]; // Return array or single URL based on multiple flag
     } catch (error) {
-      console.error('Error uploading image:', error.message || error);
-      toast.error(`Failed to upload image: ${error.message}`);
-      return null; // Return null on error
+      console.error('Error uploading images:', error.message || error);
+      toast.error(`Failed to upload images: ${error.message}`);
+      return multiple ? [] : null; // Return empty array or null on error
     } finally {
       set({ isLoading: false });
     }
   },
 }));
-
 
 export default useImageStore;

@@ -10,6 +10,7 @@ import { LiaSignOutAltSolid } from "react-icons/lia";
 import useAdminStore from '../stores/adminStore';
 import { FaInbox } from "react-icons/fa6";
 import { FaLaptopCode } from "react-icons/fa6";
+import { GiBed } from "react-icons/gi";
 
 export default function SideBar() {
     const location = useLocation();
@@ -34,6 +35,11 @@ export default function SideBar() {
             href: '/custom',
             icon: FaLaptopCode,
             active: pathname === '/custom'
+        },        {
+            label: 'Rooms',
+            href: '/adminRooms',
+            icon: GiBed,
+            active: pathname === '/adminRooms'
         },
     ], [pathname]);
 

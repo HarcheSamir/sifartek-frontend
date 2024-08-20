@@ -1,8 +1,6 @@
 import React from 'react'
 import { ParallaxBanner } from 'react-scroll-parallax';
-import { PiCarThin } from "react-icons/pi";
-import { CiMail, CiMicrophoneOn } from "react-icons/ci";
-import { TfiEmail } from "react-icons/tfi";
+
 
 export default function Parallax() {
   return (
