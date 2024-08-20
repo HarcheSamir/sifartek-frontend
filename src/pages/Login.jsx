@@ -7,7 +7,7 @@ import Loginn from '../forms/LoginForm';
 export default function Login() {
 
   return (
-    <div className='w-full h-screen bg-primary relative flex text-white'>
+    <div className='w-full h-full  md:pb-0 overflow-y-auto bg-primary relative flex text-white'>
       <div className="relative hidden sm:block text-xl -translate-x-[20%] margin-40 h-full w-[50%] md:w-[70%] rounded-r-[50px] overflow-hidden -skew-x-12" >
         <div className='w-[120%] relative   h-[100%] skew-x-12 ' >
           <LoginCarousel items={components} />

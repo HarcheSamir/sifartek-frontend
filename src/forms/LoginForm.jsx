@@ -57,7 +57,7 @@ export default function Login() {
 
             <button
                 type="submit"
-                className={`flex items-center text-sm justify-center mt-6 px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'}`}
+                className={`flex items-center mb-40 text-sm justify-center mt-6 px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'}`}
                 disabled={isLoading}
             >
                 {isLoading && (
