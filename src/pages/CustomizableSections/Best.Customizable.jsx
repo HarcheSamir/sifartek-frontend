@@ -291,9 +291,10 @@ export default function Best() {
                     onCancel={() => setIsEditing(false)}
                 />
             )}
-              {isEditingImage && selectedItem && (
+            {isEditingImage && selectedItem && (
                 <ImageEditor
-                    item={selectedItem.key}
+                    data={contentItems.find((item) => item.key === selectedItem.key)}
+                    item={selectedItem}
                     onSave={handleSaveImage}
                     onCancel={() => setIsEditingImage(false)}
                 />

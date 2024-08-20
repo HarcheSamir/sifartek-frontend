@@ -16,7 +16,10 @@ const useRoomStore = create((set) => ({
         params: { page, pageSize },
       });
       console.log(response.data.rooms);
-      set({ rooms: response.data.rooms });
+      set({
+        rooms: response.data.rooms,
+        totalRooms: response.data.totalRooms // Assume API response includes totalRooms
+      });
     } catch (error) {
       console.error('Error fetching rooms:', error);
       toast.error('Failed to fetch rooms');

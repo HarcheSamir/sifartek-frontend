@@ -8,20 +8,34 @@ export default function AdminRooms() {
   const [page, setPage] = useState(1);
   const pageSize = 10; // Define the number of rooms per page
 
-  const { rooms, isLoading, fetchRooms, deleteRoom } = useRoomStore();
+  const { rooms, isLoading, totalRooms, fetchRooms, deleteRoom } = useRoomStore((state) => ({
+    rooms: state.rooms,
+    isLoading: state.isLoading,
+    totalRooms: state.totalRooms,
+    fetchRooms: state.fetchRooms,
+    deleteRoom: state.deleteRoom,
+  }));
 
   useEffect(() => {
     fetchRooms(page, pageSize);
   }, [page, pageSize, fetchRooms]);
 
-  const handleNextPage = () => setPage((prevPage) => prevPage + 1);
+  const handleNextPage = () => {
+    if (!isLastPage()) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
   const handlePreviousPage = () => setPage((prevPage) => Math.max(prevPage - 1, 1));
+
+  const isLastPage = () => {
+    return page * pageSize >= totalRooms; // Check if current page is the last page
+  };
 
   const handleDeleteRoom = async (id) => {
     try {
       await deleteRoom(id);
-      // Optionally, refetch the rooms to ensure the UI is updated
-      fetchRooms(page, pageSize);
+      fetchRooms(page, pageSize); // Optionally, refetch the rooms to ensure the UI is updated
     } catch (error) {
       console.error('Error deleting room:', error);
       // Optionally, show an error toast or message here
@@ -40,7 +54,7 @@ export default function AdminRooms() {
         </div>
       </div>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8 mt-4'>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
@@ -85,7 +99,8 @@ export default function AdminRooms() {
         <span className='text-sm'>Page {page}</span>
         <button
           onClick={handleNextPage}
-          className='px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded'
+          disabled={isLastPage()} // Disable if it's the last page
+          className='px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:bg-gray-200'
         >
           Next
         </button>

@@ -55,14 +55,14 @@ export default function HomeAmbience() {
     return (
         <>
             <div className="lg:h-screen w-full bg-primary relative md:mt-40 flex flex-col lg:flex-row">
-               { user && <img className='absolute cursor-pointer hover:scale-125 duration-300 top-[40%] z-50 left-[25%] w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
+                {user && <img className='absolute cursor-pointer hover:scale-125 duration-300 top-[40%] z-50 left-[25%] w-16 bg-white rounded-full p-4' alt='' src='/assets/imageEdit.svg'
                     onClick={() => handleEditImageClick('image')}
                 />}
                 <CustomizableImage
                     className="w-full shrink-0 lg:w-[60%] h-full object-cover"
                     src={getItemContent('image')}
                 >
-                    
+
                 </CustomizableImage>
                 <div className="grow py-20 flex flex-col justify-center pl-8 md:pl-20">
                     <CustomizableText
@@ -94,7 +94,8 @@ export default function HomeAmbience() {
 
             {isEditingImage && selectedItem && (
                 <ImageEditor
-                    item={selectedItem.key}
+                    data={contentItems.find((item) => item.key === selectedItem.key)}
+                    item={selectedItem}
                     onSave={handleSaveImage}
                     onCancel={() => setIsEditingImage(false)}
                 />
