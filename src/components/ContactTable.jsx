@@ -145,7 +145,9 @@ const ContactTable = () => {
                         {contact.subject}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-xs font-medium text-gray-700">
-                        {contact.message}
+                        <p className="w-full max-w-[10rem] truncate">
+                          {contact.message}
+                        </p>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-xs  text-gray-700">
                         {formatDistanceToNow(new Date(contact.createdAt), { addSuffix: true })}
@@ -154,7 +156,7 @@ const ContactTable = () => {
                         <button
                           type="button"
                           className="inline-flex items-center gap-x-2 text-sm font-bold rounded-lg text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 cursor-pointer"
-                          onClick={(e) => {e.stopPropagation(); /* handle delete */}}
+                          onClick={(e) => { e.stopPropagation(); /* handle delete */ }}
                         >
                           Delete
                         </button>
@@ -171,9 +173,8 @@ const ContactTable = () => {
       {/* Pagination */}
       <div className="flex justify-between items-center mt-6">
         <button
-          className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 transition ease-in-out duration-200 ${
-            currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
-          }`}
+          className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 transition ease-in-out duration-200 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+            }`}
           onClick={() => handlePageChange('prev')}
           disabled={currentPage === 1}
         >
@@ -184,9 +185,8 @@ const ContactTable = () => {
           Page {currentPage} of {totalPages}
         </span>
         <button
-          className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 transition ease-in-out duration-200 ${
-            currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
-          }`}
+          className={`flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 transition ease-in-out duration-200 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+            }`}
           onClick={() => handlePageChange('next')}
           disabled={currentPage === totalPages}
         >
@@ -222,7 +222,7 @@ const ContactTable = () => {
               <p className="text-gray-900">{selectedContact.message}</p>
             </div>
             <div className="mb-4">
-              <p className="text-gray-900 text-xs text-right">  
+              <p className="text-gray-900 text-xs text-right">
                 {new Date(selectedContact.createdAt).toLocaleString()}
               </p>
             </div>
