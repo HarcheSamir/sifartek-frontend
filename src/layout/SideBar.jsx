@@ -76,7 +76,7 @@ export default function SideBar() {
             <div className='w-[80%] h-[1px] bg-zinc-200 mt-4 mb-4'></div>
             <p className='w-full text-[10px]  ml-6 mb-2'>USER</p>
             {userRoutes.map((item) =>
-                <Link className='w-full relative ' key={item.label} to={item.href}>
+                <Link className='w-full relative ' key={item.label} >
                     {item.active && <div className='absolute h-full right-0 rounded-t-full rounded-b-full w-1 bg-blue-500'></div>}
                     <div className={`${item.active ? 'bg-blue-50 ' : 'hover:scale-[105%]'} gap-2 group/item duration-300 cursor-pointer flex pl-8 items-center py-3 w-full`}>
                         <item.icon className='w-3 h-3' />

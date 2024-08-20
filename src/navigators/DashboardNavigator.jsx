@@ -37,7 +37,7 @@ export default function DashboardNavigator() {
             <Route path="/adminRooms" element={<AdminRooms/>} />
             <Route path="/login" element={<Navigate to="/dashboard" />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound navbar={false} />} />
           </Routes>
         </div>
 
