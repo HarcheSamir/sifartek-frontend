@@ -4,14 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 
-This project is a hotel website featuring an admin dashboard for managing site content, viewing user submissions, adding viewing deleting rooms. The site is fully responsive, includes secure authentication for the admin panel.
+This project is a hotel website featuring an admin dashboard for managing site content, viewing user submissions,  adding, viewing, and deleting rooms. The site is fully responsive, includes secure authentication for the admin panel, and supports pagination for efficient data display.
 
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS
 - **Backend**: Express
-- **Database**: MySQL
+- **Database**: MySQL hosted on TiDB Cloud
 - **ORM**: Prisma
+- **Image Storage**: Cloudinary
 - **Hosting**: Vercel
 
 ## How to Use
@@ -23,6 +24,8 @@ This project is a hotel website featuring an admin dashboard for managing site c
     - **Password**: `password`
 2. **Dashboard Navigation**: 
     - The sidebar includes tabs for customizing homepage texts and images with a simple text editor, managing rooms (view, add, delete), and viewing contact submissions.
+    - Images uploaded through the admin dashboard are stored using Cloudinary.
+    - Pagination is implemented to efficiently navigate through lists of rooms or user submissions.
     - A sign-out button is located at the bottom of the sidebar.
 
 ### Client-Side
