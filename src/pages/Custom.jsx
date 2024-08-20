@@ -10,6 +10,7 @@ export default function Custom() {
   React.useEffect(() => { fetchContent() }, [])
   return (
     <div className='w-full h-full overflow-y-scroll relative flex flex-col'>
+      <p className='p-4 text-xl font-semibold'>Click on any text or image icon to start editing</p>
       <div className='w-full h-full '>
         <Hero />
         <Rooms />
