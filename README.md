@@ -8,20 +8,23 @@ This project is a hotel website featuring an admin dashboard for managing site c
 
 ## How to Use
 
+### Admin Dashboard
+
+1. **Login**: Click the logo in the navbar to navigate to the login page [https://sifartek-frontend.vercel.app/login](https://sifartek-frontend.vercel.app/login). Use the following credentials:
+    - **Email**: `admin@com`
+    - **Password**: `password`
+2. **Dashboard Navigation**: 
+    - The sidebar includes tabs for customizing homepage texts and images with a simple text editor, managing rooms (view, add, delete), and viewing contact submissions.
+    - A sign-out button is located at the bottom of the sidebar.
+
+
+
 ### Client-Side
 
 1. **Access the Website**: Visit the main website at [https://sifartek-frontend.vercel.app/](https://sifartek-frontend.vercel.app/).
 2. **Rooms**: Browse available rooms via the "Rooms" tab in the navbar [https://sifartek-frontend.vercel.app/rooms](https://sifartek-frontend.vercel.app/rooms) . Each room can be clicked to view more details on a dedicated page.
 3. **Contact Us**: clients can Reach out through the "Contact Us" page [https://sifartek-frontend.vercel.app/contact](https://sifartek-frontend.vercel.app/contact) .
 
-### Admin Dashboard
-
-1. **Login**: Click the logo in the navbar to navigate to the login page. Use the following credentials:
-    - **Email**: `admin@com`
-    - **Password**: `password`
-2. **Dashboard Navigation**: 
-    - The sidebar includes tabs for customizing homepage texts and images with a simple text editor, managing rooms (view, add, delete), and viewing contact submissions.
-    - A sign-out button is located at the bottom of the sidebar.
 
 ## Available Scripts
 
